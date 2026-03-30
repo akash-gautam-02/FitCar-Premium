@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC | LOGIN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffffff",
+              "on-tertiary-fixed": "#515050",
+              "surface-tint": "#9cff93",
+              "secondary-container": "#006875",
+              "on-secondary": "#004d57",
+              "on-primary-fixed": "#00440a",
+              "on-tertiary": "#605f5e",
+              "primary-container": "#00fc40",
+              "error-container": "#b92902",
+              "surface-container-lowest": "#000000",
+              "on-error-container": "#ffd2c8",
+              "inverse-primary": "#006f16",
+              "inverse-surface": "#fcf8f8",
+              "on-background": "#ffffff",
+              "primary": "#9cff93",
+              "primary-dim": "#00ec3b",
+              "on-primary-container": "#005a10",
+              "error-dim": "#d53d18",
+              "surface-dim": "#0e0e0e",
+              "tertiary-dim": "#edeaea",
+              "on-tertiary-fixed-variant": "#6e6d6d",
+              "on-tertiary-container": "#575656",
+              "background": "#0e0e0e",
+              "surface": "#0e0e0e",
+              "surface-container-high": "#201f1f",
+              "surface-container-low": "#131313",
+              "tertiary": "#fcf9f8",
+              "tertiary-container": "#edeaea",
+              "secondary-fixed": "#26e6ff",
+              "on-secondary-container": "#e8fbff",
+              "inverse-on-surface": "#565554",
+              "tertiary-fixed-dim": "#f3f0ef",
+              "surface-container": "#1a1919",
+              "on-primary": "#006413",
+              "on-surface": "#ffffff",
+              "surface-container-highest": "#262626",
+              "on-secondary-fixed": "#003a42",
+              "surface-variant": "#262626",
+              "surface-bright": "#2c2c2c",
+              "on-primary-fixed-variant": "#006513",
+              "on-error": "#450900",
+              "primary-fixed-dim": "#00ec3b",
+              "primary-fixed": "#00fc40",
+              "on-surface-variant": "#adaaaa",
+              "outline-variant": "#494847",
+              "secondary-dim": "#00d4ec",
+              "outline": "#777575",
+              "error": "#ff7351",
+              "on-secondary-fixed-variant": "#005964",
+              "secondary": "#00e3fd",
+              "secondary-fixed-dim": "#00d7f0"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(38, 38, 38, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .neon-glow {
+        box-shadow: 0 0 20px rgba(156, 255, 147, 0.2);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #9cff93 0%, #00fc40 100%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Background Layer (The Kinetic Monolith Aesthetic) -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[0%] right-[0%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[100px]"></div>
+<img class="absolute right-0 bottom-0 w-full h-full object-cover opacity-20 grayscale mix-blend-overlay" data-alt="Close-up of a high-performance carbon fiber hypercar wing with dramatic emerald green reflections and moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7SFgKamz36lE59uWoHmAyH9pDVcjxSrJ_Pd63SZSwcMDMFqJ2d9HfFNn_aM0CR61WRc7YJQkJJyfBayhoa0C2FF5EcKe9S_QYzgh2i1heBpMqhjbj-OFxX6xaMIUIyZya2p_5N9aQR1xg2c8dAVuUi_ZcaeV324x8_MoIhYX-gWtdBfBx0EaceRf5_lg2lifj-hnN_wSJNsOL0i1fhJwCkUuHJFYCqZbhDeIEkDsBFY4SJ4uJZB3hRAq05Fts9w2B2Mm8jzdiUxU"/>
+</div>
+<!-- Main Navigation (Minimalist for Login Context) -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-xl">
+<nav class="flex justify-between items-center px-6 py-4 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-green-400 uppercase font-['Inter']">KINETIC</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-neutral-400 font-bold hover:text-green-400 transition-colors duration-300 font-['Inter'] text-[10px] uppercase tracking-widest" href="#">About</a>
+<a class="text-neutral-400 font-bold hover:text-green-400 transition-colors duration-300 font-['Inter'] text-[10px] uppercase tracking-widest" href="#">Support</a>
+</div>
+</nav>
+</header>
+<!-- Login Canvas -->
+<main class="relative z-10 min-h-screen flex items-center justify-center p-6 pt-24 pb-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full max-w-7xl items-center">
+<!-- Hero Content Area (Kinetic Asymmetry) -->
+<div class="lg:col-span-7 flex flex-col items-start gap-4">
+<span class="label-md uppercase tracking-[0.3em] text-primary font-bold text-xs opacity-80">System Initialization</span>
+<h1 class="text-5xl md:text-8xl font-black tracking-[-0.04em] uppercase leading-[0.9] mb-6">
+                    Enter the <br/>
+<span class="text-transparent bg-clip-text primary-gradient">Grid</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed">
+                    Synchronize your biometrics with the Kinetic performance ecosystem. Experience precision engineering at every touchpoint.
+                </p>
+<div class="mt-8 flex gap-12 items-center">
+<div class="flex flex-col">
+<span class="text-secondary font-black text-2xl">0-60</span>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant">2.1 Seconds</span>
+</div>
+<div class="w-px h-10 bg-outline-variant/20"></div>
+<div class="flex flex-col">
+<span class="text-secondary font-black text-2xl">320+</span>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant">Top Speed km/h</span>
+</div>
+</div>
+</div>
+<!-- Login Form (The Glassmorphic Card) -->
+<div class="lg:col-span-5">
+<div class="glass-card rounded-lg p-8 md:p-12 border border-outline-variant/10 neon-glow relative overflow-hidden">
+<!-- Subtle Interior Glow -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+<form class="space-y-6 relative z-10">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-bold ml-1">Access ID</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors text-lg" data-icon="alternate_email">alternate_email</span>
+<input class="w-full bg-surface-container-highest border-none rounded-sm py-4 pl-12 pr-4 text-sm focus:ring-1 focus:ring-secondary/50 placeholder:text-outline transition-all duration-300" placeholder="name@kinetic.com" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Encrypted Key</label>
+<a class="text-[10px] uppercase tracking-widest text-secondary hover:text-secondary-fixed transition-colors font-bold" href="#">Recovery?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors text-lg" data-icon="lock_open">lock_open</span>
+<input class="w-full bg-surface-container-highest border-none rounded-sm py-4 pl-12 pr-4 text-sm focus:ring-1 focus:ring-secondary/50 placeholder:text-outline transition-all duration-300" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Sign In Button -->
+<button class="w-full primary-gradient text-on-primary font-black uppercase tracking-widest py-5 rounded-xl text-xs hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl shadow-primary/20 mt-4" type="submit">
+                            Initiate Core Access
+                        </button>
+<!-- Social Logins -->
+<div class="pt-6 flex flex-col gap-4">
+<div class="flex items-center gap-4">
+<div class="h-px flex-1 bg-outline-variant/20"></div>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Federated Login</span>
+<div class="h-px flex-1 bg-outline-variant/20"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant/20 hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="brand_family">brand_family</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant/20 hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="apple">ios</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Apple</span>
+</button>
+</div>
+</div>
+<!-- Register Link -->
+<div class="pt-8 text-center">
+<p class="text-on-surface-variant text-xs">
+                                No Kinetic credentials? 
+                                <a class="text-primary font-bold uppercase tracking-widest ml-2 hover:underline underline-offset-4 decoration-2" href="#">New Pilot Registration</a>
+</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-neutral-800/30 bg-neutral-950 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-10 w-full max-w-[1920px] mx-auto">
+<div class="text-lg font-bold text-neutral-100 font-['Inter'] mb-6 md:mb-0">
+                © 2024 KINETIC MOTORS. ENGINEERED PRECISION.
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-neutral-500 hover:text-green-400 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">About</a>
+<a class="text-neutral-500 hover:text-green-400 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">Contact</a>
+<a class="text-neutral-500 hover:text-green-400 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">FAQ</a>
+<a class="text-neutral-500 hover:text-green-400 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">Blog</a>
+</div>
+</div>
+</footer>
+</body></html>

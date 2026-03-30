@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#000000",
+              "primary": "#9cff93",
+              "outline-variant": "#494847",
+              "on-background": "#ffffff",
+              "tertiary-dim": "#edeaea",
+              "secondary-dim": "#00d4ec",
+              "surface-dim": "#0e0e0e",
+              "surface-tint": "#9cff93",
+              "surface": "#0e0e0e",
+              "tertiary-fixed-dim": "#f3f0ef",
+              "on-tertiary": "#605f5e",
+              "on-tertiary-fixed-variant": "#6e6d6d",
+              "on-primary": "#006413",
+              "on-primary-container": "#005a10",
+              "on-error-container": "#ffd2c8",
+              "secondary-container": "#006875",
+              "on-secondary-container": "#e8fbff",
+              "inverse-surface": "#fcf8f8",
+              "primary-dim": "#00ec3b",
+              "on-surface": "#ffffff",
+              "primary-container": "#00fc40",
+              "inverse-on-surface": "#565554",
+              "primary-fixed": "#00fc40",
+              "on-tertiary-fixed": "#515050",
+              "on-primary-fixed-variant": "#006513",
+              "outline": "#777575",
+              "on-primary-fixed": "#00440a",
+              "surface-bright": "#2c2c2c",
+              "on-surface-variant": "#adaaaa",
+              "tertiary-fixed": "#ffffff",
+              "surface-container-highest": "#262626",
+              "surface-container-low": "#131313",
+              "error-dim": "#d53d18",
+              "surface-container": "#1a1919",
+              "on-tertiary-container": "#575656",
+              "primary-fixed-dim": "#00ec3b",
+              "surface-container-high": "#201f1f",
+              "secondary-fixed-dim": "#00d7f0",
+              "surface-variant": "#262626",
+              "inverse-primary": "#006f16",
+              "on-secondary-fixed": "#003a42",
+              "on-error": "#450900",
+              "error": "#ff7351",
+              "secondary": "#00e3fd",
+              "on-secondary": "#004d57",
+              "background": "#0e0e0e",
+              "secondary-fixed": "#26e6ff",
+              "on-secondary-fixed-variant": "#005964",
+              "tertiary-container": "#edeaea",
+              "tertiary": "#fcf9f8",
+              "error-container": "#b92902"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(38, 38, 38, 0.4);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00FF41] cursor-pointer hover:scale-105 active:scale-95 transition-transform">menu</span>
+<h1 class="text-2xl font-black tracking-tighter text-[#00FF41] font-['Inter'] uppercase">KINETIC</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#00FF41] font-bold font-['Inter'] uppercase tracking-tight transition-colors duration-300" href="#">Home</a>
+<a class="text-neutral-400 font-['Inter'] uppercase tracking-tight hover:text-[#00FF41] transition-colors duration-300" href="#">Listing</a>
+<a class="text-neutral-400 font-['Inter'] uppercase tracking-tight hover:text-[#00FF41] transition-colors duration-300" href="#">Wishlist</a>
+<a class="text-neutral-400 font-['Inter'] uppercase tracking-tight hover:text-[#00FF41] transition-colors duration-300" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#00FF41] cursor-pointer scale-105 active:scale-95 transition-transform">search</span>
+</div>
+</div>
+</header>
+<main class="pb-32">
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-start overflow-hidden px-6 lg:px-20 bg-surface-container-lowest">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="dramatic side profile of a matte black luxury hypercar in a dark studio with neon lime green lighting highlights on sleek curves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuFrzgTXBQsw8Vq--653RO2dxmu81mNxL_9QdqLCxVUKXOmlECaqael5JEKlR3m84Ym6yJpvndLqgsvfcU6foxjRQOH-u1_QWfsBbkhZGojRtyH7EI0457lTiflDzlHWdGWzM9noOr-GVn1Fj4yj79su42C9krcHuqWc115eYgSDFqYDXPlnMHHmlfx1OENSIbNqT3x7phLXfa5Gd-XOm1lY6-mHOGp-KZ2yA0VIRnjW3G1YTkysbw6_qGbY_FarZ9w0TEHnrP5p4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-4xl space-y-8">
+<div class="space-y-2">
+<span class="text-secondary font-bold tracking-[0.2em] uppercase text-sm">Engineered Precision</span>
+<h2 class="text-6xl md:text-8xl lg:text-[7rem] font-black leading-[0.9] tracking-[-0.04em] uppercase text-on-surface">
+                        THE PEAK OF <br/> <span class="text-primary">VELOCITY.</span>
+</h2>
+</div>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-xl leading-relaxed">
+                    Experience the raw mechanical power and surgical digital precision of our latest fleet. Curated for those who demand more than just transportation.
+                </p>
+<div class="flex flex-col md:flex-row gap-4 items-center">
+<button class="w-full md:w-auto px-10 py-5 bg-gradient-to-br from-primary to-primary-container rounded-xl text-on-primary font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_30px_rgba(156,255,147,0.3)]">
+                        START IGNITION
+                    </button>
+<div class="w-full md:max-w-md relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors">search</span>
+<input class="w-full bg-surface-container-highest/60 backdrop-blur-md border-none rounded-xl py-5 pl-12 pr-6 text-on-surface placeholder:text-on-surface-variant focus:ring-1 focus:ring-secondary transition-all" placeholder="Search your dream vehicle..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Stats Overlay -->
+<div class="absolute bottom-24 right-6 lg:right-20 hidden lg:flex flex-col gap-8 text-right">
+<div>
+<div class="text-secondary-fixed text-4xl font-black italic">1.9S</div>
+<div class="text-on-surface-variant text-xs uppercase tracking-widest">0-60 MPH</div>
+</div>
+<div>
+<div class="text-secondary-fixed text-4xl font-black italic">1200HP</div>
+<div class="text-on-surface-variant text-xs uppercase tracking-widest">RAW POWER</div>
+</div>
+<div>
+<div class="text-secondary-fixed text-4xl font-black italic">250MPH</div>
+<div class="text-on-surface-variant text-xs uppercase tracking-widest">TOP VELOCITY</div>
+</div>
+</div>
+</section>
+<!-- Featured Cars Section -->
+<section class="py-24 px-6 lg:px-20 bg-surface">
+<div class="flex justify-between items-end mb-12">
+<div class="space-y-2">
+<div class="text-primary text-sm font-bold uppercase tracking-widest">Selection 2024</div>
+<h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter">FEATURED <span class="text-on-surface-variant">CARS</span></h3>
+</div>
+<div class="flex gap-4">
+<button class="p-3 rounded-full border border-outline-variant/30 hover:border-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-3 rounded-full border border-outline-variant/30 hover:border-primary transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto no-scrollbar pb-10">
+<!-- Car Card 1 -->
+<div class="min-w-[320px] md:min-w-[450px] group relative overflow-hidden rounded-lg bg-surface-container-low border border-outline-variant/10">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="front view of a white futuristic supercar parked in a modern architectural building with clean lines and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt8NKbwBuxBShmoN_SzMeK0Kl3H3B-y6X45qgzCbZQ-uZb2rohtFUwsaBgvn-sqCdXyvjS0GWKqr7drkmxTovEp5DD86p4-mkIDJ_7XM72yZsjk-WCrxTCPm1aa2_p0Td_sfSlQZJaLxVtdGjp-ESDoXHcvVxdRIXlPQJ8RpgVrJcX6tCQUOws5syh7tbfYgt2u4IyAtQgG6kqFl3rdrQ4S-wRo8OWjeUhldt36pEuadPKiKaYo3bXitHwJzRz1mU_NkjPFu0zUcM"/>
+</div>
+<div class="p-8 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-2xl font-black tracking-tight">VANTAGE S</h4>
+<p class="text-on-surface-variant text-sm uppercase tracking-widest">Performance Series</p>
+</div>
+<div class="text-primary font-black text-xl">$245,000</div>
+</div>
+<div class="flex gap-4 pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">bolt</span> ELECTRIC
+                            </div>
+<div class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">settings</span> AUTO
+                            </div>
+</div>
+<button class="w-full py-4 glass-card border border-white/5 rounded-xl uppercase font-bold text-sm tracking-widest hover:bg-primary hover:text-on-primary transition-all">View Details</button>
+</div>
+</div>
+<!-- Car Card 2 -->
+<div class="min-w-[320px] md:min-w-[450px] group relative overflow-hidden rounded-lg bg-surface-container-low border border-outline-variant/10">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="sleek modern dark grey sports car driving through a neon lit urban tunnel at night with motion blur effect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsa61CV94Rag2Cg9-82evLoUleHe0bjaB9H_vywMCwoafYVJPziDVwMsUvXy0-leJNEb4EmfWdM-Hr-PA2_Bnnb55-5CD7ICkQ57ZsZ-J3ligvTR_pSyHvTvaAZqKOPgJ9r3N0LyrPfXBPunlqwH3gAaZRnL1bKJ_mDEggsgA4WE0MnJETLOqhjQyjNo5P0nntTGcnz6wTBX7rVH99MBpR-14dv0LTgx_6sv0ibq4DTQD8VRALZXykzsolor_K6Vrkkkpofo1MSUM"/>
+</div>
+<div class="p-8 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-2xl font-black tracking-tight">OBSIDIAN X</h4>
+<p class="text-on-surface-variant text-sm uppercase tracking-widest">Limited Edition</p>
+</div>
+<div class="text-primary font-black text-xl">$312,000</div>
+</div>
+<div class="flex gap-4 pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">mode_fan</span> TURBO
+                            </div>
+<div class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">settings</span> MANUAL
+                            </div>
+</div>
+<button class="w-full py-4 glass-card border border-white/5 rounded-xl uppercase font-bold text-sm tracking-widest hover:bg-primary hover:text-on-primary transition-all">View Details</button>
+</div>
+</div>
+<!-- Car Card 3 -->
+<div class="min-w-[320px] md:min-w-[450px] group relative overflow-hidden rounded-lg bg-surface-container-low border border-outline-variant/10">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="red high performance sports car parked in a industrial warehouse with gritty atmosphere and dramatic top lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZe13TO3Cus5tYq-3iO8jLqQi1ul9CMHqli4qg6Mess0huT4BpcfALNz9HKRI1K3MkecIdichdOoP6fV9EYRUEYkjYV1NaFD3jK2SfF7b9xZc3nwZhqopx-0MNVfKTcwZv478KcGR4kl5PJS91uV6ERJ96KsZg16tIp4_PbOB41Peui8vjGR4RgqBannpAAL_j1R3Eb0WV7fJ4zVFxec1kB5arpsCa3RvgWmBqW6ESU8ZefyjOUDRGssYempO-3g3tDn3_-0HDJ8g"/>
+</div>
+<div class="p-8 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-2xl font-black tracking-tight">KINETIC R</h4>
+<p class="text-on-surface-variant text-sm uppercase tracking-widest">Racing Heritage</p>
+</div>
+<div class="text-primary font-black text-xl">$189,500</div>
+</div>
+<div class="flex gap-4 pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">speed</span> TRACK
+                            </div>
+<div class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">settings</span> PADDLE
+                            </div>
+</div>
+<button class="w-full py-4 glass-card border border-white/5 rounded-xl uppercase font-bold text-sm tracking-widest hover:bg-primary hover:text-on-primary transition-all">View Details</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Brands Section -->
+<section class="py-20 px-6 lg:px-20 bg-surface-container-low">
+<h3 class="text-center text-xs uppercase tracking-[0.4em] font-bold text-on-surface-variant mb-12">Authorized Partners</h3>
+<div class="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-60">
+<div class="flex items-center gap-2 group cursor-pointer grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-4xl text-on-surface">diamond</span>
+<span class="font-black text-xl tracking-tighter">EXOTICS</span>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-4xl text-on-surface">shield</span>
+<span class="font-black text-xl tracking-tighter">PREMIUM</span>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-4xl text-on-surface">rocket_launch</span>
+<span class="font-black text-xl tracking-tighter">VELOCITY</span>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-4xl text-on-surface">electric_car</span>
+<span class="font-black text-xl tracking-tighter">IONIC</span>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-4xl text-on-surface">hexagon</span>
+<span class="font-black text-xl tracking-tighter">CARBON</span>
+</div>
+</div>
+</section>
+<!-- Why Choose Us - Bento Grid -->
+<section class="py-24 px-6 lg:px-20 bg-surface">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 p-12 bg-surface-container-high rounded-lg relative overflow-hidden group">
+<div class="relative z-10 space-y-6">
+<span class="material-symbols-outlined text-primary text-5xl">verified_user</span>
+<h4 class="text-4xl font-black uppercase leading-none">White Glove <br/> Inspection</h4>
+<p class="text-on-surface-variant max-w-sm">Every vehicle undergoes a 300-point diagnostic check by our master technicians using proprietary telemetry technology.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[15rem]">settings</span>
+</div>
+</div>
+<div class="p-12 bg-primary rounded-lg text-on-primary space-y-6 flex flex-col justify-end">
+<span class="material-symbols-outlined text-5xl">account_balance_wallet</span>
+<h4 class="text-3xl font-black uppercase leading-none">Precision <br/> Financing</h4>
+<p class="text-on-primary/80 font-medium">Bespoke financial structures tailored to high-net-worth acquisitions.</p>
+</div>
+<div class="p-12 bg-surface-container-highest rounded-lg space-y-6 flex flex-col justify-end">
+<span class="material-symbols-outlined text-secondary text-5xl">support_agent</span>
+<h4 class="text-3xl font-black uppercase leading-none">24/7 Concierge</h4>
+<p class="text-on-surface-variant">Global support network available every second of every day for your peace of mind.</p>
+</div>
+<div class="md:col-span-2 p-12 bg-surface-container-low border border-outline-variant/10 rounded-lg flex flex-col md:flex-row items-center gap-10">
+<div class="space-y-4 flex-1">
+<h4 class="text-3xl font-black uppercase">Instant Telemetry</h4>
+<p class="text-on-surface-variant">Track every performance metric of your vehicle in real-time through the Kinetic app.</p>
+<div class="flex gap-4 pt-4">
+<div class="h-1 flex-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%]"></div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-40 h-40 bg-surface-container-high rounded-full flex items-center justify-center border-4 border-secondary/20 shadow-[0_0_40px_rgba(0,227,253,0.15)]">
+<div class="text-center">
+<div class="text-4xl font-black text-secondary">0.8s</div>
+<div class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Response</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section class="py-24 px-6 lg:px-20 bg-surface-container-lowest">
+<div class="mb-12">
+<h3 class="text-4xl font-black uppercase tracking-tighter">DRIVER <span class="text-primary">VOICES</span></h3>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-10">
+<!-- Review 1 -->
+<div class="min-w-[350px] md:min-w-[500px] glass-card p-10 rounded-lg space-y-6">
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xl font-medium italic text-on-surface leading-relaxed">
+                        "The acquisition process was seamless. Kinetic doesn't just sell cars; they curate a lifestyle of mechanical excellence. My Vantage S is a masterpiece."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="portrait of a professional male executive with a confident smile in front of a modern urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDPdTBKXN7wvFLyjyGwktesvrzqXImKmqtcalgyAEWEw5UKGMOFRRdHOg02evMq_-v8I-nx8zgKZwsGDrN4RR5YXHidqIzu_MwX_Y9DjQafygAH0cDcVPMIm8cGPPunGcSKE4A2hWcKyo8ZoZShuEkAFOAb69aK-Dfb2_wDRdFSeYHPyglSeWXdJKhJ05kUvgBDeKhBVcYjXp2THoUK4XOZ2jnliLodeYEFyBPl4GnanIDm2IeWkDP5RV8LTbj4KMks9GpKzeFuKU"/>
+</div>
+<div>
+<div class="font-black uppercase tracking-tight">Julian Vance</div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest">Collector &amp; Entrepreneur</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="min-w-[350px] md:min-w-[500px] glass-card p-10 rounded-lg space-y-6">
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xl font-medium italic text-on-surface leading-relaxed">
+                        "White-glove service from the first inquiry to the moment it was delivered. The technical transparency they provide is unmatched in the industry."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="portrait of a successful woman in a tailored suit looking ahead with determination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArFJ84GvwagG6fYDe0FA6e9dlK1JqZOhdEmjYGohKZX0SXTF-l-VnKyD711BnocJ9ZC1SMjNqpGung1PAYm9hwMYOnv2S1GscNXgcP8LzWVPao8M4KJjVPzW3YMRDnMm5fz0FM7Ed3LEf1OLilUxYSVggt9864n0FHPi_9XAMx-d3RPedHmV7reX1p30daEElwVpkibDJLpQYUg0cQhZSmYI95IoBZAtZ1UqT7yFqbKMXunBVRWgSFicxHhfh5ZcAWp6Q15U9-4bA"/>
+</div>
+<div>
+<div class="font-black uppercase tracking-tight">Elena Rodriguez</div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest">Tech Founder</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-neutral-800/30 bg-[#050505] pb-24 md:pb-12">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-10 w-full max-w-[1920px] mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-bold text-neutral-100 font-['Inter'] mb-2">KINETIC MOTORS</div>
+<div class="text-sm tracking-tight text-neutral-400 font-['Inter']">© 2024 KINETIC MOTORS. ENGINEERED PRECISION.</div>
+</div>
+<div class="flex gap-8">
+<a class="text-neutral-500 hover:text-[#00FF41] underline-offset-8 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">About</a>
+<a class="text-neutral-500 hover:text-[#00FF41] underline-offset-8 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">Contact</a>
+<a class="text-neutral-500 hover:text-[#00FF41] underline-offset-8 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">FAQ</a>
+<a class="text-neutral-500 hover:text-[#00FF41] underline-offset-8 transition-all duration-500 ease-in-out font-['Inter'] text-sm tracking-tight" href="#">Blog</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full md:hidden flex justify-around items-center px-4 pb-6 pt-3 bg-neutral-900/80 backdrop-blur-2xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.6)] z-50">
+<a class="flex flex-col items-center justify-center text-[#00FF41] bg-neutral-800/50 rounded-full px-4 py-1 shadow-[0_0_15px_rgba(0,255,65,0.3)]" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-[#9cff93] transition-all" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Listing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-[#9cff93] transition-all" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Wishlist</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-[#9cff93] transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</nav>
+</body></html>

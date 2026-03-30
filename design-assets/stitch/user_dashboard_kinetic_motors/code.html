@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC | Performance Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffffff",
+              "on-tertiary-fixed": "#515050",
+              "surface-tint": "#9cff93",
+              "secondary-container": "#006875",
+              "on-secondary": "#004d57",
+              "on-primary-fixed": "#00440a",
+              "on-tertiary": "#605f5e",
+              "primary-container": "#00fc40",
+              "error-container": "#b92902",
+              "surface-container-lowest": "#000000",
+              "on-error-container": "#ffd2c8",
+              "inverse-primary": "#006f16",
+              "inverse-surface": "#fcf8f8",
+              "on-background": "#ffffff",
+              "primary": "#9cff93",
+              "primary-dim": "#00ec3b",
+              "on-primary-container": "#005a10",
+              "error-dim": "#d53d18",
+              "surface-dim": "#0e0e0e",
+              "tertiary-dim": "#edeaea",
+              "on-tertiary-fixed-variant": "#6e6d6d",
+              "on-tertiary-container": "#575656",
+              "background": "#0e0e0e",
+              "surface": "#0e0e0e",
+              "surface-container-high": "#201f1f",
+              "surface-container-low": "#131313",
+              "tertiary": "#fcf9f8",
+              "tertiary-container": "#edeaea",
+              "secondary-fixed": "#26e6ff",
+              "on-secondary-container": "#e8fbff",
+              "inverse-on-surface": "#565554",
+              "tertiary-fixed-dim": "#f3f0ef",
+              "surface-container": "#1a1919",
+              "on-primary": "#006413",
+              "on-surface": "#ffffff",
+              "surface-container-highest": "#262626",
+              "on-secondary-fixed": "#003a42",
+              "surface-variant": "#262626",
+              "surface-bright": "#2c2c2c",
+              "on-primary-fixed-variant": "#006513",
+              "on-error": "#450900",
+              "primary-fixed-dim": "#00ec3b",
+              "primary-fixed": "#00fc40",
+              "on-surface-variant": "#adaaaa",
+              "outline-variant": "#494847",
+              "secondary-dim": "#00d4ec",
+              "outline": "#777575",
+              "error": "#ff7351",
+              "on-secondary-fixed-variant": "#005964",
+              "secondary": "#00e3fd",
+              "secondary-fixed-dim": "#00d7f0"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 20px rgba(156, 255, 147, 0.2);
+        }
+        .neon-glow-secondary {
+            box-shadow: 0 0 20px rgba(0, 227, 253, 0.2);
+        }
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-green-400 scale-105 active:scale-95 transition-transform cursor-pointer">menu</span>
+<span class="text-2xl font-black tracking-tighter text-green-400 font-['Inter'] uppercase">KINETIC</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-green-400 font-bold font-['Inter'] transition-colors duration-300" href="#">Home</a>
+<a class="text-neutral-400 hover:text-green-400 transition-colors duration-300" href="#">Listing</a>
+<a class="text-neutral-400 hover:text-green-400 transition-colors duration-300" href="#">Wishlist</a>
+<a class="text-neutral-400 hover:text-green-400 transition-colors duration-300" href="#">Profile</a>
+</div>
+<span class="material-symbols-outlined text-green-400 cursor-pointer">search</span>
+</div>
+</div>
+</header>
+<main class="pt-28 px-6 max-w-[1400px] mx-auto space-y-10">
+<!-- Profile Overview Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<div class="lg:col-span-2 flex flex-col md:flex-row gap-8 p-8 rounded-lg surface-container-low items-center md:items-start">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-primary neon-glow-primary">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional man in a tech-focused setting with cool blue and green ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9vc_HqX3z89iF_gzZRpADD5h9UJ4Zfm_GxmYLLSF_p0bS1jVMBlLgscFKYXza2yb38eP5qPW9eH2QRw84fBH_AgIIkiRF3txHqA036VsMhZpZZjcZ9EDnpV_UVFIqIpEyRajXqdQcC_uXG9b_Cmn7RvFeRitoR5BDxTwi_W5HnsSh-to0FP1OOvUyBh0LBEg4088vxLA4YBDWy27hraISu5prndO8gqctuou-iS8222plgzueKrSaCA4Zv4IA098H_s6KaQnl_Dc"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary p-2 rounded-full text-on-primary shadow-lg">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="flex-1 text-center md:text-left space-y-2">
+<div class="flex flex-col md:flex-row md:items-end gap-3">
+<h1 class="text-4xl font-black tracking-[-0.04em] font-headline uppercase">Julian Thorne</h1>
+<span class="text-secondary font-bold tracking-widest text-xs mb-1 uppercase">Apex Member</span>
+</div>
+<p class="text-on-surface-variant max-w-lg">High-performance enthusiast. Tracking telemetry for the Spectre GT and Nebula EV fleet.</p>
+<div class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+<div class="px-4 py-2 bg-surface-container-highest rounded-full border border-outline-variant/20">
+<span class="text-[10px] text-on-surface-variant block uppercase tracking-tighter">Total Distance</span>
+<span class="text-xl font-bold font-headline tracking-tight">12,482 <span class="text-xs text-secondary">KM</span></span>
+</div>
+<div class="px-4 py-2 bg-surface-container-highest rounded-full border border-outline-variant/20">
+<span class="text-[10px] text-on-surface-variant block uppercase tracking-tighter">Fleet Rank</span>
+<span class="text-xl font-bold font-headline tracking-tight">#042 <span class="text-xs text-primary">TOP 1%</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Access Configurator -->
+<div class="glass-panel p-8 rounded-lg border border-outline-variant/10 h-full flex flex-col justify-between">
+<div>
+<h3 class="text-sm font-bold tracking-widest text-primary uppercase mb-6">Quick Access</h3>
+<div class="space-y-4">
+<button class="w-full flex justify-between items-center group p-4 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">settings_input_component</span>
+<span class="font-bold tracking-tight">Fleet Settings</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex justify-between items-center group p-4 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">receipt_long</span>
+<span class="font-bold tracking-tight">Transaction History</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex justify-between items-center group p-4 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">security</span>
+<span class="font-bold tracking-tight">Privacy &amp; Security</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Performance & Activity -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Active Booking Glass Card -->
+<div class="lg:col-span-2 relative group overflow-hidden rounded-lg surface-container-low h-80 flex flex-col">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Sleek black modern supercar side profile in a dimly lit studio with neon green accents on the rims" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCey6S0RdIm1UR7hUA_rc0fUUQhldsWkyvKOfNi-kU-XfUe-_schvm2sHeFgJWQZlGWH4J_Y8LJR4IQNPl1Xyej9eOm2i3nl8GsVX6xaCn2rJJ6-9Jw7edTajUSJBLGbUZOJDqNJ3W1ybIODspkEthhNGq1mBvEzRVJhxJrwSuRvIKbVVxTRK4aXlfPBhJumcUaIg3Rpc15P7N8YbrQtTf_BpRb0HP0raZjRo8OZLnesNlIfoBn5PXPKNu64DsEZ_IV2qD6OCLSfDg"/>
+<div class="relative z-20 mt-auto p-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Active Delivery</span>
+</div>
+<h2 class="text-3xl font-black tracking-tighter uppercase font-headline">Spectre GT-X</h2>
+<p class="text-on-surface-variant text-sm mb-6">En route to North Sector Hub • ETA 14:30</p>
+<button class="bg-primary hover:bg-primary-dim text-on-primary font-bold px-8 py-3 rounded-full transition-all flex items-center gap-2 w-max">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        Track Live
+                    </button>
+</div>
+</div>
+<!-- Performance Stats -->
+<div class="glass-panel p-8 rounded-lg flex flex-col justify-between border border-outline-variant/10 h-80">
+<div class="flex justify-between items-start">
+<h3 class="text-xs font-bold tracking-[0.2em] text-secondary uppercase">Telemetry</h3>
+<span class="material-symbols-outlined text-secondary">insights</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-[10px] font-bold mb-2 tracking-widest text-on-surface-variant uppercase">
+<span>Power Reserve</span>
+<span class="text-secondary">88%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary neon-glow-secondary" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-bold mb-2 tracking-widest text-on-surface-variant uppercase">
+<span>Tire Integrity</span>
+<span class="text-primary">94%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary neon-glow-primary" style="width: 94%"></div>
+</div>
+</div>
+<div class="pt-2">
+<span class="text-4xl font-black font-headline tracking-tighter">2.1<span class="text-lg font-normal text-on-surface-variant">s</span></span>
+<span class="block text-[10px] tracking-widest text-on-surface-variant uppercase mt-1">Avg. 0-100 Start</span>
+</div>
+</div>
+</div>
+<!-- Wishlist Summary -->
+<div class="surface-container-high p-8 rounded-lg flex flex-col border border-primary/10 h-80">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-xs font-bold tracking-[0.2em] text-primary uppercase">Wishlist</h3>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="flex-1 space-y-4 overflow-y-auto pr-2 custom-scrollbar">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Interior cockpit of a high-end sportscar with glowing cyan dashboard interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmhizW_7ntrAa3AsNvpeNkG5J-T-k6YBlNrifLyRbl5utTWhCXKbhD0dHjAON0XJ5GAzS6BNEk9JdSKkvMMJFyhih6_Vos9fJMEnbtEdBS5zp4vYg2LfqFpJAGTDHqFJWtr37uPWrjX-Lty-BPV3RhsDRBcmyf1Xb1m4Q7JKAElSFPL2R5UNYrLVL_C-YUUlpzTGcq_MvJWG7r2rUxvbDHMn_lli3ELA-4Vx0xx14B48QGP7D140A5uEwdoljua1N7AhLtyJ0Ov6o"/>
+</div>
+<div>
+<p class="font-bold text-sm tracking-tight">Nebula Concept</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Pre-order Status</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Rear light detail of a sleek carbon fiber car with sharp red geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Pbe5_lw-MNSPFH_R3NJY5ITkpzRG0Ik3CdwtnATfqH12UwR6merylnBHWGNW_Q4CjMGLjNLeokiobxMVDnsOEENGmQkOR6EVlDEP0rd7o1U7DUSusffVj5McebNZTTsW39TLoTPADQl16h_dUKYK7Q5AvKOvJItvlbNPJBzFIFDrrE6G1JsAWLvcAvLrN5SKUIXq3XciAhOzzgOdQNySyIEFRhhl4BQoJtwlXC7l-KL432ouPXxksbVK0D5VLHlu6bFXfOyhmgI"/>
+</div>
+<div>
+<p class="font-bold text-sm tracking-tight">Onyx Rim Pack</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Limited Edition</p>
+</div>
+</div>
+</div>
+<button class="mt-4 text-primary text-[10px] font-bold tracking-widest uppercase hover:underline underline-offset-8 transition-all">View All items</button>
+</div>
+</section>
+<!-- Recent Activity Asymmetric Layout -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-10 py-10">
+<div class="lg:col-span-4 space-y-6">
+<h2 class="text-4xl font-black tracking-tight font-headline uppercase leading-none">Recent<br/><span class="text-primary">Dynamics</span></h2>
+<p class="text-on-surface-variant text-sm">Real-time logs of your interaction with the Kinetic ecosystem. Precision tracking for every maneuver.</p>
+<div class="h-px bg-gradient-to-r from-primary/50 to-transparent w-full"></div>
+</div>
+<div class="lg:col-span-8 space-y-2">
+<div class="flex items-center gap-6 p-6 rounded-xl hover:bg-surface-container-low transition-colors group">
+<span class="text-xs font-bold text-on-surface-variant font-mono w-20">12 OCT</span>
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-sm">bolt</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm tracking-tight">Supercharge Completed</h4>
+<p class="text-xs text-on-surface-variant">North Station V3 • 45kWh Added</p>
+</div>
+<span class="text-xs font-bold text-secondary">+$12.40</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-xl hover:bg-surface-container-low transition-colors group">
+<span class="text-xs font-bold text-on-surface-variant font-mono w-20">11 OCT</span>
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm">speed</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm tracking-tight">Performance Badge Earned</h4>
+<p class="text-xs text-on-surface-variant">Top Speed Achievement: 'Mach Whisper'</p>
+</div>
+<span class="material-symbols-outlined text-primary">military_tech</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-xl hover:bg-surface-container-low transition-colors group">
+<span class="text-xs font-bold text-on-surface-variant font-mono w-20">08 OCT</span>
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-neutral-800 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm tracking-tight">Service Appointment Scheduled</h4>
+<p class="text-xs text-on-surface-variant">Annual Calibration • Oct 24</p>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Pending</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-neutral-900/80 backdrop-blur-2xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.6)] z-50">
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-green-300 transition-all">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-green-300 transition-all">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Listing</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-green-300 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Wishlist</span>
+</div>
+<div class="flex flex-col items-center justify-center text-green-400 bg-neutral-800/50 rounded-full px-4 py-1 shadow-[0_0_15px_rgba(0,255,65,0.3)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full border-t border-neutral-800/30 bg-neutral-950 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-10 w-full max-w-[1920px] mx-auto">
+<div class="flex flex-col items-center md:items-start gap-4 mb-8 md:mb-0">
+<span class="text-lg font-bold text-neutral-100 uppercase tracking-tighter">KINETIC MOTORS</span>
+<p class="font-['Inter'] text-sm tracking-tight text-neutral-400">© 2024 KINETIC MOTORS. ENGINEERED PRECISION.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-sm tracking-tight text-neutral-500 hover:text-green-400 underline-offset-8 transition-all duration-500" href="#">About</a>
+<a class="font-['Inter'] text-sm tracking-tight text-neutral-500 hover:text-green-400 underline-offset-8 transition-all duration-500" href="#">Contact</a>
+<a class="font-['Inter'] text-sm tracking-tight text-neutral-500 hover:text-green-400 underline-offset-8 transition-all duration-500" href="#">FAQ</a>
+<a class="font-['Inter'] text-sm tracking-tight text-neutral-500 hover:text-green-400 underline-offset-8 transition-all duration-500" href="#">Blog</a>
+</div>
+</div>
+</footer>
+</body></html>

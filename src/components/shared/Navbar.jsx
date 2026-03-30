@@ -1,0 +1,111 @@
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Menu, X, Search, Heart, User } from 'lucide-react'
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Listing', path: '/listing' },
+    { name: 'Compare', path: '/compare' },
+    { name: 'Wishlist', path: '/wishlist' },
+    { name: 'About', path: '/about' },
+  ]
+
+  return (
+    <header 
+      className={cn(
+        "fixed top-0 w-full z-50 transition-all duration-300",
+        scrolled 
+          ? "bg-neutral-950/80 backdrop-blur-xl py-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+          : "bg-transparent py-6"
+      )}
+    >
+      <div className="container mx-auto px-6 flex justify-between items-center max-w-[1920px]">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 group">
+          <h1 className="text-2xl font-black tracking-tighter text-primary uppercase select-none transition-transform group-hover:scale-105">
+            KINETIC
+          </h1>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={cn(
+                "text-sm font-bold uppercase tracking-widest transition-all hover:text-primary",
+                location.pathname === link.path ? "text-primary" : "text-on-surface-variant"
+              )}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Action Icons */}
+        <div className="flex items-center gap-6">
+          <button className="text-on-surface hover:text-primary transition-colors">
+            <Search size={22} />
+          </button>
+          <Link to="/wishlist" className="text-on-surface hover:text-primary transition-colors hidden sm:block">
+            <Heart size={22} />
+          </Link>
+          <Link to="/auth/login" className="text-on-surface hover:text-primary transition-colors">
+            <User size={22} />
+          </Link>
+          
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-primary"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 top-[72px] bg-surface/95 backdrop-blur-2xl z-40 md:hidden animate-in fade-in slide-in-from-top-5 duration-300">
+          <nav className="flex flex-col items-center justify-center h-full gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  "text-2xl font-black uppercase tracking-tighter transition-all",
+                  location.pathname === link.path ? "text-primary scale-110" : "text-on-surface-variant"
+                )}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}
+
+export default Navbar

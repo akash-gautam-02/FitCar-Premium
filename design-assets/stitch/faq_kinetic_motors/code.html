@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#9cff93",
+              "on-secondary": "#004d57",
+              "surface-container": "#1a1919",
+              "inverse-on-surface": "#565554",
+              "on-tertiary": "#605f5e",
+              "primary-fixed-dim": "#00ec3b",
+              "on-surface": "#ffffff",
+              "on-secondary-fixed": "#003a42",
+              "surface": "#0e0e0e",
+              "surface-container-lowest": "#000000",
+              "secondary-fixed-dim": "#00d7f0",
+              "surface-variant": "#262626",
+              "surface-tint": "#9cff93",
+              "surface-container-highest": "#262626",
+              "on-primary": "#006413",
+              "error-container": "#b92902",
+              "on-primary-container": "#005a10",
+              "on-secondary-fixed-variant": "#005964",
+              "on-primary-fixed-variant": "#006513",
+              "tertiary-fixed": "#ffffff",
+              "primary-fixed": "#00fc40",
+              "error": "#ff7351",
+              "surface-container-high": "#201f1f",
+              "on-primary-fixed": "#00440a",
+              "error-dim": "#d53d18",
+              "on-surface-variant": "#adaaaa",
+              "surface-dim": "#0e0e0e",
+              "tertiary-fixed-dim": "#f3f0ef",
+              "background": "#0e0e0e",
+              "secondary": "#00e3fd",
+              "outline": "#777575",
+              "outline-variant": "#494847",
+              "on-error": "#450900",
+              "tertiary-dim": "#edeaea",
+              "secondary-fixed": "#26e6ff",
+              "on-tertiary-fixed": "#515050",
+              "primary-dim": "#00ec3b",
+              "tertiary-container": "#edeaea",
+              "inverse-primary": "#006f16",
+              "on-tertiary-container": "#575656",
+              "tertiary": "#fcf9f8",
+              "surface-container-low": "#131313",
+              "secondary-dim": "#00d4ec",
+              "on-error-container": "#ffd2c8",
+              "surface-bright": "#2c2c2c",
+              "on-tertiary-fixed-variant": "#6e6d6d",
+              "inverse-surface": "#fcf8f8",
+              "secondary-container": "#006875",
+              "primary-container": "#00fc40",
+              "on-secondary-container": "#e8fbff",
+              "on-background": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(38, 38, 38, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0e0e0e; }
+      ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #9cff93; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 dark:bg-[#050505]/60 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-2xl font-black text-[#00FF41] tracking-tighter font-['Inter'] uppercase">KINETIC MOTORS</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] font-black tracking-[-0.04em] uppercase text-[#adaaaa] hover:text-[#9cff93] transition-colors duration-300" href="#">Home</a>
+<a class="font-['Inter'] font-black tracking-[-0.04em] uppercase text-[#adaaaa] hover:text-[#9cff93] transition-colors duration-300" href="#">Listing</a>
+<a class="font-['Inter'] font-black tracking-[-0.04em] uppercase text-[#00FF41] border-b-2 border-[#00FF41] transition-colors duration-300" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00FF41] scale-95 active:scale-90 transition-transform cursor-pointer" data-icon="search">search</span>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[530px] flex flex-col justify-center items-start px-8 md:px-24 overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="close-up of a high-performance electric motor with carbon fiber textures and neon green wire accents in a dark workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLkqO0OTt58i-qfiuaY9ICuQaM3pfinFdBUj6AiEOBbQTBx4klNTnim8MavdDO3XRmMnSowZR2XKKS9XrCf1vprDq5PQLP7Do21r54lG_O4w7y7WzwJ9IK-UbeJQ5b6DjRPFM558MdeBteNHzIdMB1mufclQklPzsdQP2YNAyCa7YPj6EGx2itpaB67x6KnngNCA08Nt8YOvV8vXMdAaMTzXUnjXraa40QOgCcVjO9aBfUJ4v7VD4yrWyd-7J-1uGmMgubOCzgqJQ"/>
+</div>
+<div class="relative z-20 max-w-4xl">
+<div class="inline-block bg-primary-container px-4 py-1 rounded-full mb-6">
+<span class="text-on-primary-container font-black text-[10px] tracking-[0.2em] uppercase">SYSTEMS SUPPORT</span>
+</div>
+<h2 class="text-5xl md:text-8xl font-black tracking-[-0.04em] leading-none uppercase mb-8">
+                    OPERATIONAL<br/>
+<span class="text-primary italic">GUIDANCE</span>
+</h2>
+<!-- Search Bar -->
+<div class="w-full max-w-2xl relative">
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-6 pl-14 pr-6 text-on-surface placeholder:text-on-surface-variant focus:ring-1 focus:ring-secondary transition-all" placeholder="Search Knowledge Base" type="text"/>
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary" data-icon="terminal">terminal</span>
+</div>
+</div>
+</section>
+<!-- Categories & Filter Section -->
+<section class="py-12 px-8 md:px-24 bg-surface-container-low">
+<div class="flex flex-wrap gap-4 items-center">
+<button class="px-8 py-3 rounded-full bg-primary text-on-primary font-black text-xs tracking-widest uppercase transition-all scale-100 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(156,255,147,0.3)]">All Manuals</button>
+<button class="px-8 py-3 rounded-full bg-surface-container-highest text-on-surface-variant font-black text-xs tracking-widest uppercase border border-outline-variant/20 hover:text-on-surface transition-all">Acquisition</button>
+<button class="px-8 py-3 rounded-full bg-surface-container-highest text-on-surface-variant font-black text-xs tracking-widest uppercase border border-outline-variant/20 hover:text-on-surface transition-all">Performance</button>
+<button class="px-8 py-3 rounded-full bg-surface-container-highest text-on-surface-variant font-black text-xs tracking-widest uppercase border border-outline-variant/20 hover:text-on-surface transition-all">Maintenance</button>
+<button class="px-8 py-3 rounded-full bg-surface-container-highest text-on-surface-variant font-black text-xs tracking-widest uppercase border border-outline-variant/20 hover:text-on-surface transition-all">Security</button>
+</div>
+</section>
+<!-- FAQ Accordion Section -->
+<section class="py-24 px-8 md:px-24 max-w-7xl mx-auto">
+<div class="space-y-6">
+<!-- Accordion Item 1 -->
+<div class="glass-card rounded-lg overflow-hidden border-l-4 border-primary group">
+<div class="p-8 flex justify-between items-center cursor-pointer">
+<h3 class="text-xl md:text-2xl font-black uppercase tracking-tight">How is a Kinetic motor different?</h3>
+<span class="material-symbols-outlined text-primary text-3xl transition-transform group-hover:rotate-90" data-icon="add">add</span>
+</div>
+<div class="px-8 pb-8 text-on-surface-variant max-w-3xl">
+                        Our propulsion systems utilize a patented Axial Flux architecture combined with room-temperature superconductive winding. This results in a 40% increase in power density over traditional radial flux motors while maintaining 98.7% thermal efficiency under maximum load.
+                    </div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden border-l-4 border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+<div class="p-8 flex justify-between items-center">
+<h3 class="text-xl md:text-2xl font-black uppercase tracking-tight text-on-surface-variant hover:text-on-surface">What is the wait time for a custom build?</h3>
+<span class="material-symbols-outlined text-outline-variant text-3xl" data-icon="add">add</span>
+</div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden border-l-4 border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+<div class="p-8 flex justify-between items-center">
+<h3 class="text-xl md:text-2xl font-black uppercase tracking-tight text-on-surface-variant hover:text-on-surface">What charging networks are supported?</h3>
+<span class="material-symbols-outlined text-outline-variant text-3xl" data-icon="add">add</span>
+</div>
+</div>
+<!-- Accordion Item 4 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden border-l-4 border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+<div class="p-8 flex justify-between items-center">
+<h3 class="text-xl md:text-2xl font-black uppercase tracking-tight text-on-surface-variant hover:text-on-surface">Does Kinetic offer localized track support?</h3>
+<span class="material-symbols-outlined text-outline-variant text-3xl" data-icon="add">add</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-8 md:px-24 mb-20">
+<div class="bg-gradient-to-br from-surface-container-highest to-surface-container-low p-12 md:p-24 rounded-lg relative overflow-hidden flex flex-col items-center text-center">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">STILL HAVE QUESTIONS?</h2>
+<p class="text-on-surface-variant text-lg max-w-xl mb-12">Our engineering team is available 24/7 to provide technical telemetry and bespoke configuration assistance.</p>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-black px-12 py-5 rounded-full text-sm tracking-widest uppercase hover:scale-105 active:scale-95 transition-all shadow-[0_10px_40px_rgba(0,255,65,0.2)]">
+                        Contact Concierge
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] dark:bg-[#050505] w-full py-12 px-8 border-t border-[#262626]">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<h4 class="text-[#00FF41] font-black italic text-xl">KINETIC MOTORS</h4>
+<p class="font-['Inter'] text-sm text-[#adaaaa] tracking-tight">ENGINEERED FOR PRECISION.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-black text-xs tracking-widest uppercase text-on-surface">RESOURCES</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-['Inter'] text-sm text-[#adaaaa] hover:underline decoration-[#00FF41] underline-offset-8 transition-all" href="#">About</a>
+<a class="font-['Inter'] text-sm text-[#adaaaa] hover:underline decoration-[#00FF41] underline-offset-8 transition-all" href="#">Contact</a>
+<a class="font-['Inter'] text-sm text-[#adaaaa] hover:underline decoration-[#00FF41] underline-offset-8 transition-all" href="#">FAQ</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-black text-xs tracking-widest uppercase text-on-surface">LEGAL</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-['Inter'] text-sm text-[#adaaaa] hover:underline decoration-[#00FF41] underline-offset-8 transition-all" href="#">Privacy</a>
+<a class="font-['Inter'] text-sm text-[#adaaaa] hover:underline decoration-[#00FF41] underline-offset-8 transition-all" href="#">Terms</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-black text-xs tracking-widest uppercase text-on-surface">NEWSLETTER</h5>
+<div class="flex">
+<input class="bg-surface-container-highest border-none rounded-l-lg p-3 text-xs focus:ring-1 focus:ring-primary w-full" placeholder="TELEMETRY FEED" type="email"/>
+<button class="bg-primary text-on-primary p-3 rounded-r-lg">
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-outline-variant/10 text-center">
+<p class="font-['Inter'] text-xs text-[#adaaaa] tracking-tight uppercase">© 2024 KINETIC MOTORS. ENGINEERED FOR PRECISION.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#131313]/80 dark:bg-[#050505]/80 backdrop-blur-2xl flex justify-around items-center py-4 px-6 rounded-t-[3rem] z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.8)]">
+<div class="flex flex-col items-center justify-center text-[#adaaaa] hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#adaaaa] hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Listing</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#00FF41] drop-shadow-[0_0_8px_rgba(0,255,65,0.4)] transition-all">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Support</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#adaaaa] hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

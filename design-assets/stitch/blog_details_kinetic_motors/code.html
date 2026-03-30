@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#2c2c2c",
+              "secondary": "#00e3fd",
+              "surface-dim": "#0e0e0e",
+              "primary-fixed": "#00fc40",
+              "background": "#0e0e0e",
+              "tertiary-dim": "#edeaea",
+              "surface-container-highest": "#262626",
+              "surface-container": "#1a1919",
+              "primary-container": "#00fc40",
+              "on-primary": "#006413",
+              "on-error": "#450900",
+              "on-primary-fixed": "#00440a",
+              "on-tertiary-fixed-variant": "#6e6d6d",
+              "secondary-fixed": "#26e6ff",
+              "surface-container-low": "#131313",
+              "surface-container-high": "#201f1f",
+              "on-tertiary": "#605f5e",
+              "on-secondary": "#004d57",
+              "on-primary-fixed-variant": "#006513",
+              "tertiary-fixed-dim": "#f3f0ef",
+              "surface-variant": "#262626",
+              "surface": "#0e0e0e",
+              "tertiary-container": "#edeaea",
+              "secondary-dim": "#00d4ec",
+              "inverse-surface": "#fcf8f8",
+              "on-error-container": "#ffd2c8",
+              "on-primary-container": "#005a10",
+              "on-secondary-container": "#e8fbff",
+              "primary": "#9cff93",
+              "on-tertiary-fixed": "#515050",
+              "error-dim": "#d53d18",
+              "tertiary-fixed": "#ffffff",
+              "on-surface": "#ffffff",
+              "tertiary": "#fcf9f8",
+              "on-secondary-fixed": "#003a42",
+              "primary-fixed-dim": "#00ec3b",
+              "surface-tint": "#9cff93",
+              "error": "#ff7351",
+              "outline": "#777575",
+              "on-surface-variant": "#adaaaa",
+              "error-container": "#b92902",
+              "inverse-primary": "#006f16",
+              "primary-dim": "#00ec3b",
+              "on-background": "#ffffff",
+              "on-secondary-fixed-variant": "#005964",
+              "surface-container-lowest": "#000000",
+              "secondary-fixed-dim": "#00d7f0",
+              "secondary-container": "#006875",
+              "inverse-on-surface": "#565554",
+              "on-tertiary-container": "#575656",
+              "outline-variant": "#494847"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(38, 38, 38, 0.6);
+        backdrop-filter: blur(20px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl flex justify-between items-center px-8 py-6 max-w-none shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-none">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00FF41]">menu</span>
+<span class="font-inter tracking-tighter uppercase font-black text-2xl italic text-[#00FF41]">NEON_GENESIS</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#adaaaa] font-inter tracking-widest text-xs hover:text-[#9cff93] transition-colors duration-300" href="#">DASHBOARD</a>
+<a class="text-[#00FF41] font-bold font-inter tracking-widest text-xs hover:text-[#9cff93] transition-colors duration-300" href="#">EDITORIAL</a>
+<a class="text-[#adaaaa] font-inter tracking-widest text-xs hover:text-[#9cff93] transition-colors duration-300" href="#">GARAGE</a>
+<a class="text-[#adaaaa] font-inter tracking-widest text-xs hover:text-[#9cff93] transition-colors duration-300" href="#">TELEMETRY</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a tech professional with dramatic neon lighting and sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHIS42sDOG3dFewpaLrsb4z6JIQFFgHmrYv9lqRrKDC47z_YeDfoSEhMkO5QNBQecezeKB2ClJPDEutES1S5RMf_z9aZOwNE2lvvksF9Zd9WUGYj1QzOeEeqxCJ5mJTpUpe7phuQkWPbY0NNo6_djKX3DzYAxRwIcVLlmP8CseVJ4wZ10FyFypQYRVatetn2Oy11w4NFbvzcCv_KKzGQxY9_V1xWQxgYxYMknJH4fS5aE8r59kI-atkXR8qrjuXPBWWW7USThmalQ"/>
+</div>
+</header>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section -->
+<section class="relative w-full h-[707px] overflow-hidden flex items-end px-8 pb-20">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="cinematic wide shot of a futuristic sleek black sports car on a wet asphalt road at night with lime green neon highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChVrQ5BQqNp6AadXjIdmKbDwWk8T1QLZhsJvh0VHdjkIsVy9w8zdaA_lLHlaxaEAvX09p-1s55ug8tJ7iLIzzvHgMV1e4HURotWCiqxHg4GbLEYtjMe-5WgSPtMez8eHtp0n-d5MasdPfv-IetvNJ1tZ2F0RcdbVtUg_GUmq4ASyOAE-322h2z641C4SrmlhVnd6bBSU3tYqEI8bhajrwVAUPfANKFKxisbUF23Q_b4vyIJ8UVsmz6Im0RP67iWT_g8P4G9gisR30"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-5xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-primary text-on-primary-container text-[10px] font-black tracking-[0.2em] rounded-full">PROTO_TYPE</span>
+<span class="text-on-surface-variant text-[10px] font-medium tracking-widest uppercase">OCTOBER_24_2024</span>
+</div>
+<h1 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9] mb-8 text-on-surface">
+                    THE FUTURE_OF <br/>
+<span class="text-primary italic">SOLID-STATE_PROPULSION</span>
+</h1>
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full border border-primary/30" data-alt="professional editorial headshot of a senior automotive engineer in a high-tech studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDMrA9OeblTXcpoF-_IGUiY_A_cz2SG9XbXsBwpaCS2cbkJZTV_Z0_fwU0jpw7O1Adht-7hS_EDBBg11qcnN_QpDkNy2NoaG9-In4zmCwEI5un87gPXTST9Zb84RvOgj0XfC9qoYMxfewxcQZ0IrqYPbbvRs4XQ9hnY8HC0Yf6Xd0n-_yh64F_zEP5p2Vp5p4hiOUr8SviLqDr9Tr3Fj91Jqo4-i15hn2QnD_TkoWegdo1-i5Fstksly3ejRfVDT-XtoZOsEvd7zE"/>
+<div>
+<p class="text-primary font-bold text-xs tracking-widest uppercase">OPERATOR_01</p>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest">Lead_Systems_Architect</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Article Content -->
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 py-20">
+<article class="lg:col-span-8">
+<div class="space-y-10 text-on-surface-variant leading-relaxed text-lg">
+<p class="first-letter:text-7xl first-letter:font-black first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                        The evolution of automotive kinetics is reaching a terminal velocity point. As we transition away from combustion-based legacy systems, the architecture of power is being fundamentally reimagined. The kinetic monolith industries' latest breakthrough in solid-state energy density is not just an incremental upgrade—it is a complete system override.
+                    </p>
+<h2 class="text-3xl font-black italic uppercase tracking-tighter text-on-surface pt-4">01_CORE_SYNTHESIS</h2>
+<p>
+                        Unlike traditional lithium-ion configurations that rely on volatile liquid electrolytes, our solid-state modules utilize a ceramic-polymer composite. This allows for a 40% increase in energy-to-mass ratio while reducing the thermal footprint by nearly half. The result is a chassis that breathes, managing heat as a structural element rather than a byproduct.
+                    </p>
+<div class="my-12 relative rounded-lg overflow-hidden border border-outline-variant/20">
+<img class="w-full aspect-video object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="extreme macro shot of futuristic glowing circuit boards and metallic car components with cyan and lime illumination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKANvFXGgSoKevEBrV3iRRgKuGvXwEH5jh_1TJp9IPbI8nhcviWU3N3DgwKds75aKuzlZbvuyuAl09AL9cazZKkJHqdacZR5yxwhAJl4qz1EN8iwPJwrNSmdSlVvD-Qmi0t6TU0Rqp4gLJln42G-JhT7XmuhFo6XJBvzUB7vYJy6JSssgl49wNyUVlMheRhbA1pSLHikc5KMxGiQ7UMa287LH_lLZ77lYwtP9q5uk7dTuIWeEkUbTXdGe8-Cw0IMAvk6BdL0Hj8EI"/>
+<div class="absolute bottom-4 left-4 glass-card px-4 py-2 rounded-lg">
+<span class="text-[10px] text-primary font-mono uppercase tracking-widest">IMG_REF: CORE_INTERFACE_09</span>
+</div>
+</div>
+<blockquote class="border-l-4 border-primary pl-8 py-4 my-12 italic text-2xl font-light text-on-surface">
+                        "We are no longer designing cars. We are engineering localized atmospheric disruptions powered by pure electrical intent."
+                    </blockquote>
+<h2 class="text-3xl font-black italic uppercase tracking-tighter text-on-surface pt-4">02_TELEMETRY_OVERRIDE</h2>
+<p>
+                        Through the integration of the NEON_GENESIS neural link, every module within the drive unit communicates in sub-millisecond intervals. This isn't just traction control; it is predictive surface adaptation. The vehicle knows the friction coefficient of the asphalt before the tire even makes contact.
+                    </p>
+<div class="grid grid-cols-2 gap-4 my-12">
+<div class="h-64 bg-surface-container-low rounded-lg p-6 flex flex-col justify-end relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity" data-alt="abstract close up of high performance tire treads with glowing neon green highlights in the grooves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_io0KMLKAF31eiMopdvEUlyUd5HauzTpaXCegP8HMLqpB-YGEk9ioxXdJ9jEcqWdvsYbneZAZN0wzvSdHjVmDeOhe2sANGsRoaRLu2tr-vpmAF9zA24qg9GjGUhfamRIlaoFSMYsIMk8yItAjosO_6IsRv-uBT5V8vWgtmSHOE0c_b6rwX5fLj08heOy7u08yU6EB8WsWfK7tJrdfdb55tZKcb5QNWaJculRcN2YEJL_QDX38RFRrqzI2e8KbBPkzwYl-aLBm9ps"/>
+<p class="relative z-10 text-primary font-black text-xl uppercase tracking-tighter">Surface_Grip</p>
+<p class="relative z-10 text-on-surface-variant text-[10px] uppercase">Active_Optimization</p>
+</div>
+<div class="h-64 bg-surface-container-low rounded-lg p-6 flex flex-col justify-end relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity" data-alt="blurred motion shot of high speed car headlights streaking through a dark urban tunnel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCMXXWQjP1Ol8QcZAvcziMcCEKtcZ3dAGbiDY2zCSB-PxLrWl_2FsXJZCd-EqjrXuazAG2L5ran-adayp5gd3m8ssN-wIgtO4xr2lNClj1GqD-TbW21aK_AmyihyJKkWDi-ooMdhrE-Wsy-7hgcrV8If9dXwRxsAXZsc8gAA4dCsBY2N688joRzTsmwh1PoWlkGw6a2_LzCooVh9M5ZdDiBrvCdZIdwMxZtkuXWAHYW9VocFm6GMtN-yxBQ__4b1VfuucifJZJ-1I"/>
+<p class="relative z-10 text-secondary font-black text-xl uppercase tracking-tighter">Aero_Sync</p>
+<p class="relative z-10 text-on-surface-variant text-[10px] uppercase">Dynamic_Drag_Reduction</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-12">
+<!-- Newsletter -->
+<div class="p-8 bg-surface-container-highest rounded-lg border border-outline-variant/10 shadow-2xl">
+<h3 class="text-primary font-black italic uppercase tracking-widest text-lg mb-2">SUBSCRIBE_TO_THE_GRID</h3>
+<p class="text-on-surface-variant text-xs mb-8 uppercase tracking-widest leading-loose">Access exclusive telemetry data and prototype reports delivered via secure uplink.</p>
+<div class="space-y-4">
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 text-xs font-mono focus:ring-1 focus:ring-secondary placeholder:text-outline" placeholder="OPERATOR_EMAIL" type="email"/>
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-black uppercase text-xs tracking-[0.3em] rounded-xl hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(156,255,147,0.3)]">INITIATE_UPLINK</button>
+</div>
+</div>
+<!-- Related Content -->
+<div>
+<h3 class="text-on-surface font-black uppercase tracking-tighter text-xl mb-6 flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+                        NEXT_PROTOCOL
+                    </h3>
+<div class="space-y-6">
+<a class="group block border-b border-outline-variant/10 pb-6" href="#">
+<p class="text-primary text-[10px] font-bold tracking-widest mb-1 uppercase">GARAGE_LOGS</p>
+<h4 class="text-on-surface font-bold text-lg group-hover:text-secondary transition-colors leading-tight uppercase tracking-tighter">REDEFINING_AERODYNAMIC_STASIS: THE_X1_UNIT</h4>
+</a>
+<a class="group block border-b border-outline-variant/10 pb-6" href="#">
+<p class="text-primary text-[10px] font-bold tracking-widest mb-1 uppercase">TECH_DATA</p>
+<h4 class="text-on-surface font-bold text-lg group-hover:text-secondary transition-colors leading-tight uppercase tracking-tighter">NEURAL_NET_TRAJECTORY_MAPPING_IN_URBAN_ZONES</h4>
+</a>
+<a class="group block border-b border-outline-variant/10 pb-6" href="#">
+<p class="text-primary text-[10px] font-bold tracking-widest mb-1 uppercase">PILOT_NOTES</p>
+<h4 class="text-on-surface font-bold text-lg group-hover:text-secondary transition-colors leading-tight uppercase tracking-tighter">HUMAN_ELEMENT_SYNC: 0.2MS_LATENCY_THRESHOLD</h4>
+</a>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="p-8 bg-surface-container-low rounded-lg flex flex-col gap-6">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-1">SYSTEM_UPTIME</p>
+<p class="text-secondary font-black text-3xl tabular-nums tracking-tighter">99.98%</p>
+</div>
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-1">DATA_STREAMING</p>
+<div class="flex items-end gap-1 h-8">
+<div class="w-1 bg-secondary h-4"></div>
+<div class="w-1 bg-secondary h-6"></div>
+<div class="w-1 bg-secondary h-3"></div>
+<div class="w-1 bg-secondary h-8"></div>
+<div class="w-1 bg-secondary h-5"></div>
+<div class="w-1 bg-secondary h-7"></div>
+<div class="w-1 bg-secondary h-4"></div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- NavigationDrawer (Mobile) -->
+<div class="md:hidden fixed inset-y-0 left-0 z-[60] flex flex-col bg-[#0e0e0e] h-full w-80 shadow-none transform -translate-x-full">
+<div class="px-8 py-10">
+<div class="flex items-center gap-4 mb-10">
+<div class="w-12 h-12 rounded-full border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="mobile profile avatar of the user in a high-tech dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5t02YBZX6QI2MfkoXZhdYzIur-ZMs8vn725iYz1lUDtRPqnwVrzFvmGYKIgbCN8Ie_Ganm1i55tb6R4vodM9LqEbOi2Dcw9v3gZpj65GieGkb5fShoZepgan_O_tsjmylTgYdf9gZ5vCkjpeZIWXTOKpKn27e17QILekX6e-EXkD4bq-nugshWHGj1gibiw-C9zMeBbCKgQBfVWsA_NMCqp8JKzaPu0oS1BVC2iMlRja3LeiE3wqGLk94MmpFwm501GvHievkvk8"/>
+</div>
+<div>
+<h4 class="text-primary font-black italic text-sm tracking-widest uppercase">OPERATOR_01</h4>
+<p class="text-[#adaaaa] text-[10px] tracking-widest">CORE_LEVEL_7</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="text-[#adaaaa] mx-4 my-1 px-6 py-3 font-inter font-medium tracking-widest text-xs hover:bg-[#262626] rounded-full transition-all duration-300 ease-in-out" href="#">DASHBOARD</a>
+<a class="bg-gradient-to-r from-[#9cff93] to-[#00fc40] text-black rounded-full mx-4 my-1 px-6 py-3 font-inter font-medium tracking-widest text-xs" href="#">EDITORIAL</a>
+<a class="text-[#adaaaa] mx-4 my-1 px-6 py-3 font-inter font-medium tracking-widest text-xs hover:bg-[#262626] rounded-full transition-all duration-300 ease-in-out" href="#">GARAGE</a>
+<a class="text-[#adaaaa] mx-4 my-1 px-6 py-3 font-inter font-medium tracking-widest text-xs hover:bg-[#262626] rounded-full transition-all duration-300 ease-in-out" href="#">TELEMETRY</a>
+<a class="text-[#adaaaa] mx-4 my-1 px-6 py-3 font-inter font-medium tracking-widest text-xs hover:bg-[#262626] rounded-full transition-all duration-300 ease-in-out" href="#">SETTINGS</a>
+</nav>
+</div>
+<div class="mt-auto p-8">
+<p class="text-[#00FF41] text-[10px] tracking-widest uppercase font-bold">SYSTEM_ONLINE</p>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 bg-[#050505] border-t border-[#494847]/20 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<span class="text-[#00FF41] font-black italic text-xl tracking-tighter uppercase">NEON_GENESIS</span>
+<p class="font-inter text-[10px] tracking-widest uppercase opacity-50 text-on-surface">©2024 KINETIC_MONOLITH_INDUSTRIES. ALL_RIGHTS_RESERVED.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-[#adaaaa] font-inter text-[10px] tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity" href="#">PRIVACY_PROTOCOL</a>
+<a class="text-[#adaaaa] font-inter text-[10px] tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity" href="#">SYSTEM_STATUS</a>
+<a class="text-[#adaaaa] font-inter text-[10px] tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity" href="#">LEGAL_DEPT</a>
+</div>
+</footer>
+</body></html>
