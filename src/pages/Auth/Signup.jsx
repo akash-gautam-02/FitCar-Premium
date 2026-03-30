@@ -25,7 +25,6 @@ const Signup = () => {
     const onSubmit = async (data) => {
         // Simulate registration
         await new Promise(resolve => setTimeout(resolve, 1500))
-        console.log('Signup Success:', data)
         navigate('/dashboard')
     }
 

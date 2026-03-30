@@ -49,7 +49,6 @@ const Booking = () => {
     const onSubmit = async (data) => {
         // In a real app, we would save the booking here
         await new Promise(resolve => setTimeout(resolve, 1500))
-        console.log('Booking Confirmed:', data)
         navigate('/order-confirmation')
     }
 

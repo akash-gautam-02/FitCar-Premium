@@ -21,7 +21,6 @@ const Login = () => {
     const onSubmit = async (data) => {
         // Simulate authentication
         await new Promise(resolve => setTimeout(resolve, 1500))
-        console.log('Login Success:', data)
         navigate('/dashboard')
     }
 
