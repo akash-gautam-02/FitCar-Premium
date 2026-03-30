@@ -11,7 +11,7 @@ const CarCard = ({ car }) => {
   const isComparing = comparison.includes(car.id)
 
   return (
-    <div className="min-w-[320px] md:min-w-[450px] group relative overflow-hidden rounded-2xl bg-surface-medium border border-white/5 transition-all duration-500 hover:border-primary/20 hover:shadow-luxury-float">
+    <div className="min-w-[320px] md:min-w-[420px] group relative overflow-hidden glass-card transition-all duration-700 hover:border-primary/30 hover:shadow-primary-glow/20">
       {/* Image Container */}
       <div className="aspect-[16/10] overflow-hidden relative">
         <img 
@@ -46,30 +46,30 @@ const CarCard = ({ car }) => {
       </div>
 
       {/* Content */}
-      <div className="p-8 space-y-6">
+      <div className="p-6 space-y-6">
         <div className="flex justify-between items-start">
-          <div>
-            <h4 className="text-2xl font-black tracking-tight uppercase group-hover:text-primary transition-colors">
+          <div className="space-y-1">
+            <h4 className="text-xl md:text-2xl font-poppins font-bold tracking-tight uppercase group-hover:text-primary transition-colors duration-500">
               {car.name}
             </h4>
-            <p className="text-on-surface-variant text-xs uppercase tracking-widest mt-1">
+            <p className="text-on-surface-variant text-[0.65rem] font-medium uppercase tracking-[0.2em]">
               {car.brand} • {car.year}
             </p>
           </div>
-          <div className="text-primary font-black text-xl tracking-tight">
+          <div className="text-primary font-poppins font-bold text-lg md:text-xl tracking-tight">
             ${car.price.toLocaleString()}
           </div>
         </div>
 
         {/* Specs Highlights */}
-        <div className="flex gap-6 pt-4 border-t border-white/5">
-          <div className="flex items-center gap-2 text-[0.7rem] font-bold text-secondary uppercase tracking-tighter">
-            <Zap size={14} className="text-secondary" />
-            {car.power}
+        <div className="flex gap-6 pt-5 border-t border-white/5">
+          <div className="flex items-center gap-2.5 text-[0.7rem] font-semibold text-on-surface-variant uppercase tracking-wider">
+            <Zap size={14} className="text-primary" />
+            <span>{car.power}</span>
           </div>
-          <div className="flex items-center gap-2 text-[0.7rem] font-bold text-secondary uppercase tracking-tighter">
+          <div className="flex items-center gap-2.5 text-[0.7rem] font-semibold text-on-surface-variant uppercase tracking-wider">
             <Settings size={14} className="text-secondary" />
-            {car.transmission}
+            <span>{car.transmission}</span>
           </div>
         </div>
 

@@ -39,84 +39,94 @@ const CarDetail = () => {
     const isWishlisted = wishlist.includes(car.id)
 
     return (
-        <div className="bg-background min-h-screen font-black text-white uppercase tracking-widest overflow-x-hidden">
+        <div className="bg-background min-h-screen text-white overflow-x-hidden font-inter">
+            {/* Navigation Overlay */}
+            <div className="absolute top-12 left-6 md:left-20 z-30 flex items-center gap-6">
+                <Link to="/listing" className="group flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl glass-effect border border-white/10 flex items-center justify-center group-hover:border-primary transition-all duration-500">
+                        <ArrowLeft size={20} className="text-white group-hover:text-primary transition-colors" />
+                    </div>
+                    <span className="text-[0.65rem] font-poppins font-bold tracking-[0.3em] text-white/50 group-hover:text-white transition-colors uppercase">
+                        BACK TO FLEET
+                    </span>
+                </Link>
+            </div>
             {/* Hero Gallery Section */}
-            <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+            <section className="relative w-full h-[80vh] md:h-[90vh] overflow-hidden">
                 <motion.div 
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
                     className="w-full h-full"
                 >
                     <img src={car.image} alt={car.name} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent"></div>
                 </motion.div>
 
                 {/* Editorial Title Overlay */}
-                <div className="absolute bottom-12 left-6 md:left-20 z-10 max-w-4xl space-y-6">
-                    <motion.div 
-                        initial={{ x: -50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="flex items-center gap-4"
-                    >
-                        <span className="px-3 py-1 bg-primary text-background font-black text-[0.7rem] tracking-[0.3em] rounded-sm italic">
-                            2024 PERFORMANCE SERIES
-                        </span>
-                        <div className="h-[1px] w-24 bg-primary/40"></div>
-                    </motion.div>
-                    <motion.h1 
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.7 }}
-                        className="text-7xl md:text-9xl font-black italic tracking-tighter leading-[0.85]"
-                    >
-                        {car.name.split(' ').pop()} <br/>
-                        <span className="text-secondary italic">EDITION</span>
-                    </motion.h1>
-                    <motion.p 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
-                        className="text-on-surface-variant max-w-xl text-sm font-bold tracking-widest leading-relaxed normal-case"
-                    >
-                        {car.description}
-                    </motion.p>
-                </div>
-                
-                {/* Back Link */}
-                <Link to="/listing" className="absolute top-12 left-6 md:left-20 z-20 flex items-center gap-3 text-[0.7rem] hover:text-primary transition-colors group">
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary/40 transition-all">
-                        <ArrowLeft size={16} />
+                <div className="absolute bottom-20 left-6 md:left-20 z-10 max-w-4xl">
+                    <div className="space-y-8">
+                        <motion.div 
+                            initial={{ x: -30, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className="flex items-center gap-5"
+                        >
+                            <span className="px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary font-poppins font-bold text-[0.6rem] tracking-[0.4em] rounded-lg uppercase">
+                                PERFORMANCE SERIES
+                            </span>
+                            <div className="h-[1px] w-20 bg-primary/30"></div>
+                        </motion.div>
+                        
+                        <motion.h1 
+                            initial={{ y: 40, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.7, duration: 0.8 }}
+                            className="text-7xl md:text-9xl font-poppins font-bold tracking-tighter leading-[0.9] uppercase"
+                        >
+                            {car.name.split(' ').slice(0, -1).join(' ')} <br/>
+                            <span className="text-primary italic">{car.name.split(' ').pop()}</span>
+                        </motion.h1>
+
+                        <motion.p 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1, duration: 1 }}
+                            className="text-on-surface-variant max-w-xl text-lg font-medium leading-relaxed opacity-70"
+                        >
+                            {car.description}
+                        </motion.p>
                     </div>
-                   <span className="opacity-60 group-hover:opacity-100 transition-opacity">GO BACK TO COLLECTION</span>
-                </Link>
+                </div>
             </section>
 
             {/* Main Content */}
             <main className="relative z-20 px-6 md:px-20 lg:px-40 -mt-20 space-y-32 pb-48">
                 
                 {/* Specs Bento Grid */}
-                <section className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <section className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     {[
-                        { label: 'Peak Power', value: car.power, icon: Zap, suffix: 'HP' },
-                        { label: '0-60 MPH', value: car.acceleration, icon: Timer, suffix: '' },
-                        { label: 'Top Velocity', value: car.topSpeed, icon: Gauge, suffix: '' },
-                        { label: 'Engine Config', value: car.engine, icon: ShieldCheck, suffix: '' }
+                        { label: 'PEAK POWER', value: car.power, icon: Zap, suffix: ' HP' },
+                        { label: '0-60 MPH', value: car.acceleration, icon: Timer, suffix: ' S' },
+                        { label: 'TOP VELOCITY', value: car.topSpeed, icon: Gauge, suffix: '' },
+                        { label: 'ENGINE CONFIG', value: car.engine, icon: ShieldCheck, suffix: '' }
                     ].map((spec, i) => (
                         <motion.div 
                             key={i}
                             initial={{ y: 30, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="bg-surface-highest/10 backdrop-blur-3xl border border-white/5 p-8 rounded-[2rem] flex flex-col justify-between min-h-[200px] group hover:border-primary/20 transition-all"
+                            transition={{ delay: i * 0.1, duration: 0.8 }}
+                            className="glass-card p-10 flex flex-col justify-between min-h-[220px] group hover:border-primary/30 transition-all duration-500"
                         >
-                            <spec.icon className="text-secondary group-hover:scale-110 transition-transform" size={32} />
+                            <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                <spec.icon className="text-primary group-hover:scale-110 transition-transform duration-500" size={28} />
+                            </div>
                             <div>
-                                <h4 className="text-on-surface-variant text-[0.6rem] font-black tracking-widest mb-2 opacity-60">{spec.label}</h4>
-                                <div className="text-3xl font-black italic tracking-tighter text-white">
-                                    {spec.value}
+                                <h4 className="text-on-surface-variant text-[0.6rem] font-poppins font-bold tracking-[0.3em] mb-3 opacity-40 uppercase">{spec.label}</h4>
+                                <div className="text-4xl font-poppins font-bold tracking-tighter text-white">
+                                    {spec.value}<span className="text-lg text-primary ml-1">{spec.suffix}</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -124,35 +134,40 @@ const CarDetail = () => {
                 </section>
 
                 {/* Ownership & EMI Section */}
-                <section className="grid lg:grid-cols-12 gap-20 items-start">
-                    <div className="lg:col-span-5 space-y-12">
+                <section className="grid lg:grid-cols-12 gap-16 items-start">
+                    <div className="lg:col-span-5 space-y-10 pt-8">
                         <div className="space-y-4">
-                            <h2 className="text-primary text-[0.7rem] font-black tracking-[0.4em] kinetic-asymmetry">STRATEGIC INVESTMENT</h2>
-                            <h3 className="text-5xl font-black italic tracking-tighter leading-none">OWNERSHIP <br/> <span className="text-on-surface-variant">STRUCTURE</span></h3>
+                            <span className="text-primary font-poppins font-bold text-[0.65rem] tracking-[0.5em] uppercase opacity-60">STRATEGIC INVESTMENT</span>
+                            <h3 className="text-5xl font-poppins font-bold tracking-tighter leading-none uppercase">OWNERSHIP <br/> <span className="text-white/40">STRUCTURE.</span></h3>
                         </div>
-                        <div className="p-10 bg-surface-highest/5 rounded-[3rem] border-l-4 border-primary space-y-6">
-                            <div className="space-y-1">
-                                <span className="text-on-surface-variant text-[0.65rem] opacity-60">MSRP STARTING AT</span>
-                                <div className="text-5xl font-black italic tracking-tighter text-white">${car.price.toLocaleString()}</div>
+                        <div className="p-12 glass-effect rounded-[2.5rem] border border-white/10 space-y-8 relative overflow-hidden group">
+                            <div className="absolute top-0 left-0 w-2 h-full bg-primary/40 group-hover:bg-primary transition-colors duration-500"></div>
+                            <div className="space-y-2">
+                                <span className="text-on-surface-variant text-[0.6rem] font-poppins font-bold tracking-[0.2em] opacity-50 uppercase">MSRP STARTING AT</span>
+                                <div className="text-6xl font-poppins font-bold tracking-tighter text-white">${car.price.toLocaleString()}</div>
                             </div>
-                            <p className="text-[0.75rem] text-on-surface-variant font-bold normal-case leading-relaxed opacity-80">
+                            <p className="text-[0.9rem] text-on-surface-variant font-medium leading-relaxed opacity-70">
                                 Includes 4-year premium maintenance, 24/7 concierge trackside assistance, and global charging access for life.
                             </p>
-                            <div className="pt-6">
-                                <Button className="w-full" size="xl">PROCURE VEHICLE</Button>
+                            <div className="pt-4">
+                                <Link to={`/booking?carName=${encodeURIComponent(car.name)}`}>
+                                    <Button className="w-full h-16 rounded-2xl" size="xl">PROCURE VEHICLE</Button>
+                                </Link>
                             </div>
                         </div>
                     </div>
 
-                    <div className="lg:col-span-7 bg-surface-highest/10 rounded-[3rem] p-12 border border-white/5 backdrop-blur-xl space-y-12">
-                        <div className="flex items-center gap-4">
-                            <Calculator className="text-secondary" size={28} />
-                            <h3 className="text-2xl font-black italic tracking-tighter text-white">EMI PRECISION CALCULATOR</h3>
+                    <div className="lg:col-span-7 glass-card p-12 space-y-12">
+                        <div className="flex items-center gap-5">
+                            <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center">
+                                <Calculator className="text-secondary" size={28} />
+                            </div>
+                            <h3 className="text-2xl font-poppins font-bold tracking-tight text-white uppercase">EMI PRECISION CALCULATOR</h3>
                         </div>
                         <div className="space-y-12">
                             <div className="space-y-6">
-                                <div className="flex justify-between text-[0.7rem] font-black tracking-widest">
-                                    <span className="text-on-surface-variant">DOWN PAYMENT</span>
+                                <div className="flex justify-between text-[0.65rem] font-poppins font-bold tracking-[0.2em] uppercase">
+                                    <span className="text-on-surface-variant/60">DOWN PAYMENT</span>
                                     <span className="text-primary">${downPayment.toLocaleString()}</span>
                                 </div>
                                 <input 
@@ -162,12 +177,12 @@ const CarDetail = () => {
                                     step="5000"
                                     value={downPayment}
                                     onChange={(e) => setDownPayment(parseInt(e.target.value))}
-                                    className="w-full h-1 bg-surface-highest/20 rounded-full appearance-none cursor-pointer accent-primary" 
+                                    className="w-full h-1 bg-white/5 rounded-full appearance-none cursor-pointer accent-primary" 
                                 />
                             </div>
                             <div className="space-y-6">
-                                <div className="flex justify-between text-[0.7rem] font-black tracking-widest">
-                                    <span className="text-on-surface-variant">OPERATIONAL TENURE</span>
+                                <div className="flex justify-between text-[0.65rem] font-poppins font-bold tracking-[0.2em] uppercase">
+                                    <span className="text-on-surface-variant/60">OPERATIONAL TENURE</span>
                                     <span className="text-primary">{tenure} MONTHS</span>
                                 </div>
                                 <input 
@@ -177,78 +192,82 @@ const CarDetail = () => {
                                     step="12"
                                     value={tenure}
                                     onChange={(e) => setTenure(parseInt(e.target.value))}
-                                    className="w-full h-1 bg-surface-highest/20 rounded-full appearance-none cursor-pointer accent-primary" 
+                                    className="w-full h-1 bg-white/5 rounded-full appearance-none cursor-pointer accent-primary" 
                                 />
                             </div>
                         </div>
-                        <div className="pt-10 border-t border-white/5 flex flex-wrap justify-between items-center gap-8">
-                            <div className="space-y-1">
-                                <span className="text-on-surface-variant text-[0.6rem] opacity-60">ESTIMATED MONTHLY</span>
-                                <div className="text-5xl font-black italic tracking-tighter text-white">
+                        <div className="pt-12 border-t border-white/5 flex flex-wrap justify-between items-center gap-8">
+                            <div className="space-y-2">
+                                <span className="text-on-surface-variant text-[0.6rem] font-poppins font-bold tracking-[0.2em] opacity-50 uppercase">ESTIMATED MONTHLY</span>
+                                <div className="text-6xl font-poppins font-bold tracking-tighter text-white">
                                     ${monthlyPayment.toLocaleString()}
-                                    <span className="text-sm font-bold text-on-surface-variant tracking-normal ml-2">/MO</span>
+                                    <span className="text-sm font-medium text-on-surface-variant tracking-normal ml-3 opacity-40">/MO</span>
                                 </div>
                             </div>
-                            <Button variant="secondary" size="lg" className="px-12">INITIATE APPLICATION</Button>
+                            <Link to={`/booking?carName=${encodeURIComponent(car.name)}`}>
+                                <Button variant="secondary" size="lg" className="px-12 h-16 rounded-2xl">INITIATE APPLICATION</Button>
+                            </Link>
                         </div>
                     </div>
                 </section>
 
                 {/* Technical Specs Table */}
-                <section className="space-y-16">
-                    <div className="text-center space-y-4">
-                        <span className="text-secondary text-[0.7rem] tracking-[0.4em]">MECHANICAL DATA</span>
-                        <h2 className="text-4xl font-black italic text-white underline decoration-primary/40 underline-offset-8">PERFORMANCE TELEMETRY</h2>
+                <section className="space-y-20">
+                    <div className="text-center space-y-6">
+                        <span className="text-secondary font-poppins font-bold text-[0.65rem] tracking-[0.5em] uppercase opacity-60">MECHANICAL DATA</span>
+                        <h2 className="text-5xl font-poppins font-bold tracking-tighter text-white uppercase underline decoration-primary/30 underline-offset-[16px] decoration-2">PERFORMANCE <span className="text-white/40">TELEMETRY.</span></h2>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-x-32 gap-y-4 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-x-24 gap-y-4 max-w-6xl mx-auto">
                         {[
-                            { label: 'Transmission', value: car.transmission },
-                            { label: 'Configuration', value: car.engine },
-                            { label: 'Curb Weight', value: '1525 KG' },
-                            { label: 'Efficiency', value: '98%' },
-                            { label: 'Seating Capacity', value: '2 Operatives' },
-                            { label: 'Interior Material', value: car.interiorColor },
-                            { label: 'Exterior Finish', value: car.exteriorColor },
-                            { label: 'Warranty Period', value: '100,000 MI' }
+                            { label: 'TRANSMISSION', value: car.transmission },
+                            { label: 'CONFIGURATION', value: car.engine },
+                            { label: 'CURB WEIGHT', value: '1525 KG' },
+                            { label: 'EFFICIENCY', value: '98%' },
+                            { label: 'SEATING CAPACITY', value: '2 OPERATIVES' },
+                            { label: 'INTERIOR MATERIAL', value: car.interiorColor },
+                            { label: 'EXTERIOR FINISH', value: car.exteriorColor },
+                            { label: 'WARRANTY PERIOD', value: '100,000 MI' }
                         ].map((spec, i) => (
-                            <div key={i} className="flex justify-between items-center py-6 border-b border-white/5 group hover:border-white/20 transition-all">
-                                <span className="text-on-surface-variant text-[0.75rem] font-bold opacity-60 group-hover:opacity-100">{spec.label}</span>
-                                <span className="text-white font-black tracking-tight italic">{spec.value}</span>
+                            <div key={i} className="flex justify-between items-center py-8 border-b border-white/5 group hover:border-primary/20 transition-all duration-500">
+                                <span className="text-on-surface-variant text-[0.7rem] font-poppins font-bold tracking-[0.2em] opacity-40 group-hover:opacity-100 group-hover:text-primary transition-all uppercase">{spec.label}</span>
+                                <span className="text-white font-poppins font-bold tracking-tight text-lg uppercase">{spec.value}</span>
                             </div>
                         ))}
                     </div>
                 </section>
 
-                {/* Testimonials */}
+                {/* Review Section */}
                 <section className="space-y-16">
-                    <div className="flex justify-between items-end gap-8 border-b border-white/5 pb-10">
-                        <div className="space-y-4">
-                           <span className="text-primary text-[0.7rem] tracking-[0.4em]">OPERATOR REVIEWS</span>
-                           <h2 className="text-5xl font-black text-white italic tracking-tighter">DRIVER <span className="text-on-surface-variant">INTELLIGENCE</span></h2>
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 border-b border-white/10 pb-12">
+                        <div className="space-y-5">
+                           <span className="text-primary font-poppins font-bold text-[0.65rem] tracking-[0.5em] uppercase opacity-60">OPERATOR REVIEWS</span>
+                           <h2 className="text-5xl font-poppins font-bold text-white uppercase tracking-tighter">DRIVER <span className="text-white/40">INTELLIGENCE.</span></h2>
                         </div>
-                        <div className="flex items-center gap-4 bg-surface-highest/10 px-8 py-4 rounded-3xl border border-white/5">
-                            <div className="flex text-primary">
+                        <div className="flex items-center gap-6 glass-effect px-10 py-5 rounded-[2rem] border border-white/10">
+                            <div className="flex text-primary gap-1">
                                 {[1,2,3,4,5].map(i => <Star key={i} size={18} fill="currentColor" />)}
                             </div>
-                            <span className="text-2xl font-black italic tracking-tighter">4.9/5</span>
+                            <span className="text-3xl font-poppins font-bold tracking-tighter">4.9<span className="text-sm opacity-40 ml-1">/5</span></span>
                         </div>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-10">
+                    <div className="grid md:grid-cols-3 gap-8">
                         {[
                             { name: 'MARCUS V.', role: 'TECH OPERATIVE', text: "The acceleration is absolute. It feels like warping through the kinetic grid in real-time." },
                             { name: 'SARAH L.', role: 'PRECISION DRIVER', text: "Finally a machine that doesn't just calculate speed, but manifests it through pure feedback." },
                             { name: 'JASON D.', role: 'ARCHITECT', text: "The interior geometry is a masterclass in minimalism and focus. Every touchpoint is deliberate." }
                         ].map((rev, i) => (
-                            <div key={i} className="p-10 bg-surface-highest/5 rounded-[3rem] border border-white/5 space-y-8 relative overflow-hidden group hover:border-primary/20 transition-all">
-                                <div className="text-primary opacity-20 absolute -top-4 -right-4">
-                                    <Star size={120} fill="currentColor" />
+                            <div key={i} className="p-12 glass-card space-y-10 relative overflow-hidden group hover:border-primary/30 transition-all duration-500">
+                                <div className="text-primary/5 absolute -top-10 -right-10 rotate-12 group-hover:text-primary/10 transition-colors duration-500">
+                                    <Star size={180} fill="currentColor" />
                                 </div>
-                                <p className="text-xl italic text-on-surface font-black normal-case leading-tight relative z-10 opacity-80 group-hover:opacity-100">"{rev.text}"</p>
-                                <div className="flex items-center gap-6 relative z-10 pt-4 border-t border-white/5">
-                                    <div className="w-12 h-12 rounded-full bg-surface-highest/20 border border-white/10" />
+                                <p className="text-xl font-medium text-white/90 leading-tight relative z-10">"{rev.text}"</p>
+                                <div className="flex items-center gap-5 relative z-10 pt-8 border-t border-white/10">
+                                    <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center font-poppins font-bold text-primary">
+                                        {rev.name.charAt(0)}
+                                    </div>
                                     <div>
-                                        <div className="text-white font-black text-sm">{rev.name}</div>
-                                        <div className="text-[0.6rem] text-on-surface-variant font-bold opacity-60 tracking-[0.2em]">{rev.role}</div>
+                                        <div className="text-white font-poppins font-bold text-sm tracking-wide">{rev.name}</div>
+                                        <div className="text-[0.6rem] text-primary/60 font-poppins font-bold tracking-[0.2em] uppercase">{rev.role}</div>
                                     </div>
                                 </div>
                             </div>

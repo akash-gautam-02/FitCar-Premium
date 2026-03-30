@@ -7,38 +7,52 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --primary: #9cff93;
+    --secondary: #00e3fd;
   }
 
   body {
     @apply bg-background text-on-surface font-inter antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Custom Scrollbar for Automotive Aesthetic */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+
+  /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-surface-lowest;
+    @apply bg-background;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-surface-highest rounded-full transition-colors hover:bg-outline;
-  }
-
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    user-select: none;
+    @apply bg-surface-highest rounded-full transition-colors hover:bg-surface-high;
   }
 }
 
 @layer components {
   .display-lg {
-    @apply text-[3.5rem] font-black tracking-compressed uppercase leading-[0.95];
+    @apply text-[3.5rem] md:text-[5rem] font-black tracking-compressed uppercase leading-[0.9] text-white;
+  }
+
+  .display-md {
+    @apply text-[2.5rem] md:text-[3.5rem] font-black tracking-compressed uppercase leading-[0.95] text-white;
+  }
+
+  .headline-lg {
+    @apply text-[2rem] md:text-[2.5rem] font-extrabold uppercase tracking-tightest;
   }
 
   .headline-md {
-    @apply text-[1.75rem] font-bold uppercase tracking-tightest;
+    @apply text-[1.5rem] md:text-[1.75rem] font-bold uppercase tracking-tightest;
+  }
+
+  .body-lg {
+    @apply text-[1.125rem] font-medium leading-relaxed text-on-surface-variant;
   }
 
   .body-md {
@@ -46,24 +60,19 @@
   }
 
   .label-md {
-    @apply text-[0.75rem] font-semibold uppercase tracking-widest text-on-surface;
-  }
-
-  .glass-effect {
-    @apply bg-surface-highest/60 backdrop-blur-[20px];
-  }
-
-  /* Kinetic Asymmetry Helpers */
-  .kinetic-asymmetry {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-16 after:bg-primary;
+    @apply text-[0.75rem] font-black uppercase tracking-widest text-on-surface/60;
   }
 
   .glass-card {
-    background: rgba(38, 38, 38, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    @apply bg-surface-highest/40 backdrop-blur-2xl border border-white/5 shadow-luxury-float shadow-glass-inner;
   }
 
+  .glass-effect {
+    @apply backdrop-blur-2xl bg-glass-blur border border-white/5;
+  }
+}
+
+@layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

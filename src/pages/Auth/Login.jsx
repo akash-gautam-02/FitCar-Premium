@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Mail, Lock, Apple, Chrome } from 'lucide-react'
+import { Mail, Lock, Apple, Chrome, ChevronRight, Fingerprint, ShieldCheck } from 'lucide-react'
 import Button from '../../components/ui/Button'
 
 const loginSchema = z.object({
@@ -25,107 +25,134 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-background min-h-screen text-white font-black uppercase tracking-widest relative overflow-hidden flex flex-col">
+        <div className="bg-surface min-h-screen selection:bg-primary/30 relative overflow-hidden flex flex-col items-center justify-center font-body px-6">
             {/* Background Layer */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_rgba(0,252,64,0.08),_transparent_70%)]"></div>
-                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/5 blur-[120px] rounded-full animate-pulse"></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[100px] rounded-full"></div>
             </div>
 
-            <main className="flex-grow flex items-center justify-center px-6 py-12 relative z-10">
-                <div className="w-full max-w-md">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-center mb-10"
-                    >
-                        <h1 className="text-4xl md:text-5xl font-black tracking-tighter mb-2">INITIALIZE<br/><span className="text-primary italic">SESSION</span></h1>
-                        <p className="text-[0.6rem] text-on-surface-variant tracking-[0.4em] font-bold">KINETIC MOTORS • SECURE UPLINK</p>
-                    </motion.div>
-
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.1 }}
-                        className="bg-surface-container/40 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 md:p-10 relative group"
-                    >
-                        {/* Subtle Interior Glow */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/15 transition-all duration-700"></div>
-                        
-                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-                            <div className="space-y-4">
-                                <div className="space-y-2">
-                                    <label className="text-[0.6rem] uppercase tracking-[0.3em] text-on-surface-variant font-black ml-1">ACCESS ID</label>
-                                    <div className="relative group/input">
-                                        <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within/input:text-primary transition-colors" size={18} />
-                                        <input 
-                                            {...register('email')}
-                                            type="email" 
-                                            placeholder="name@kinetic-motors.com"
-                                            className={`w-full bg-surface-highest/10 border border-white/5 rounded-2xl py-5 pl-14 pr-6 text-sm font-bold normal-case focus:ring-1 focus:ring-primary/40 focus:border-primary/40 transition-all outline-none ${errors.email ? 'border-error/50' : ''}`}
-                                        />
-                                    </div>
-                                    {errors.email && <p className="text-[10px] text-error font-bold uppercase tracking-widest mt-1 ml-1">{errors.email.message}</p>}
-                                </div>
-
-                                <div className="space-y-2">
-                                    <div className="flex justify-between items-center px-1">
-                                        <label className="text-[0.6rem] uppercase tracking-[0.3em] text-on-surface-variant font-black">ENCRYPTED KEY</label>
-                                        <Link to="/forgot-password" size="sm" className="text-[0.6rem] text-primary hover:text-white transition-colors cursor-pointer font-black tracking-widest">RECOVERY?</Link>
-                                    </div>
-                                    <div className="relative group/input">
-                                        <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within/input:text-primary transition-colors" size={18} />
-                                        <input 
-                                            {...register('password')}
-                                            type="password" 
-                                            placeholder="••••••••"
-                                            className={`w-full bg-surface-highest/10 border border-white/5 rounded-2xl py-5 pl-14 pr-6 text-sm font-bold normal-case focus:ring-1 focus:ring-primary/40 focus:border-primary/40 transition-all outline-none ${errors.password ? 'border-error/50' : ''}`}
-                                        />
-                                    </div>
-                                    {errors.password && <p className="text-[10px] text-error font-bold uppercase tracking-widest mt-1 ml-1">{errors.password.message}</p>}
-                                </div>
-                            </div>
-
-                            <button 
-                                disabled={isSubmitting}
-                                type="submit"
-                                className="w-full py-5 bg-primary text-on-primary font-black uppercase tracking-tighter text-xl rounded-2xl shadow-[0_0_30px_rgba(0,252,64,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-4"
-                            >
-                                {isSubmitting ? 'SYNCHRONIZING...' : 'INITIATE CORE ACCESS'}
-                            </button>
-                        </form>
-
-                        <div className="mt-10 relative">
-                            <div className="absolute inset-0 flex items-center">
-                                <div className="w-full border-t border-white/5"></div>
-                            </div>
-                            <div className="relative flex justify-center text-[0.6rem] uppercase font-black bg-transparent">
-                                <span className="bg-surface px-4 text-on-surface-variant tracking-[0.4em]">External Links</span>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4 mt-8">
-                            <button className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/5 py-4 rounded-xl transition-all group/btn">
-                                <Chrome size={18} className="group-hover/btn:text-primary transition-colors" />
-                                <span className="text-[0.6rem] font-bold">CHROME</span>
-                            </button>
-                            <button className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/5 py-4 rounded-xl transition-all group/btn">
-                                <Apple size={18} className="group-hover/btn:text-primary transition-colors" />
-                                <span className="text-[0.6rem] font-bold">APPLE</span>
-                            </button>
-                        </div>
-                    </motion.div>
-
-                    <div className="mt-10 text-center">
-                        <p className="text-[0.6rem] text-on-surface-variant font-bold tracking-widest">
-                            NEW OPERATIVE? <Link to="/signup" className="text-primary hover:underline ml-2">CREATE IDENTITY</Link>
-                        </p>
+            <main className="relative z-10 w-full max-w-lg">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center mb-12"
+                >
+                    <div className="flex justify-center mb-10">
+                       <motion.div 
+                           whileHover={{ scale: 1.1, rotate: 180 }}
+                           transition={{ duration: 0.6 }}
+                           className="w-20 h-20 rounded-[2.5rem] bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-luxury-neon"
+                       >
+                           <Fingerprint size={32} />
+                       </motion.div>
                     </div>
-                </div>
+                    <h1 className="display-md normal-case italic text-on-surface leading-none mb-4">
+                      Initialize <span className="text-secondary not-italic">Session</span>
+                    </h1>
+                    <p className="label-sm text-on-surface/30 uppercase tracking-[0.4em] font-bold">KINETIC MOTORS • SECURE TERMINAL v4.0</p>
+                </motion.div>
+
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="glass-card p-10 md:p-16 rounded-[4rem] border border-white/5 relative group overflow-hidden"
+                >
+                    {/* Subtle Interior Glow */}
+                    <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/5 rounded-full blur-[100px] group-hover:bg-primary/10 transition-all duration-1000"></div>
+                    
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 relative z-10">
+                        <div className="space-y-8">
+                            <div className="space-y-3">
+                                <div className="flex justify-between items-center px-2">
+                                   <label className="label-sm text-on-surface/30 uppercase tracking-[0.3em] font-black">Operator Access ID</label>
+                                   <ShieldCheck size={14} className="text-primary/40" />
+                                </div>
+                                <div className="relative group/input">
+                                    <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-on-surface/20 group-focus-within/input:text-primary transition-all duration-500" size={18} />
+                                    <input 
+                                        {...register('email')}
+                                        type="email" 
+                                        placeholder="IDENTITY_ID@KINETIC.SYS"
+                                        className={`w-full bg-white/5 border border-white/5 rounded-3xl py-6 pl-16 pr-8 text-sm font-bold uppercase tracking-widest focus:ring-1 focus:ring-primary/40 focus:border-primary/40 transition-all outline-none placeholder:text-on-surface/10 ${errors.email ? 'border-secondary/40' : ''}`}
+                                    />
+                                    {errors.email && (
+                                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute -bottom-6 left-2 text-[10px] text-secondary font-bold uppercase tracking-widest">
+                                          {errors.email.message}
+                                       </motion.div>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="relative space-y-3 pt-2">
+                                <div className="flex justify-between items-center px-2">
+                                    <label className="label-sm text-on-surface/30 uppercase tracking-[0.3em] font-black">Tactical Key</label>
+                                    <Link to="/forgot-password" size="sm" className="text-[10px] text-secondary hover:text-primary transition-all font-black tracking-widest uppercase italic">Key Recovery?</Link>
+                                </div>
+                                <div className="relative group/input">
+                                    <Lock className="absolute left-6 top-1/2 -translate-y-1/2 text-on-surface/20 group-focus-within/input:text-primary transition-all duration-500" size={18} />
+                                    <input 
+                                        {...register('password')}
+                                        type="password" 
+                                        placeholder="••••••••••••"
+                                        className={`w-full bg-white/5 border border-white/5 rounded-3xl py-6 pl-16 pr-8 text-sm font-bold normal-case focus:ring-1 focus:ring-primary/40 focus:border-primary/40 transition-all outline-none placeholder:text-on-surface/10 ${errors.password ? 'border-secondary/40' : ''}`}
+                                    />
+                                    {errors.password && (
+                                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute -bottom-6 left-2 text-[10px] text-secondary font-bold uppercase tracking-widest">
+                                          {errors.password.message}
+                                       </motion.div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+
+                        <Button 
+                            disabled={isSubmitting}
+                            type="submit"
+                            className="w-full h-20 rounded-[2rem] shadow-luxury-neon flex items-center justify-center gap-4 group/btn"
+                        >
+                            <span className="label-md font-black uppercase tracking-[0.3em]">
+                               {isSubmitting ? 'Verifying Uplink...' : 'Initialize Access'}
+                            </span>
+                            {!isSubmitting && <ChevronRight className="group-hover:translate-x-1 transition-transform" />}
+                        </Button>
+                    </form>
+
+                    <div className="mt-12 relative flex items-center justify-center">
+                        <div className="absolute inset-0 flex items-center">
+                            <div className="w-full border-t border-white/5"></div>
+                        </div>
+                        <span className="relative z-10 bg-surface/50 backdrop-blur-xl px-10 label-sm text-on-surface/20 uppercase tracking-[0.5em] font-black italic">Protocol Redundancy</span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6 mt-12">
+                        <button className="flex items-center justify-center gap-4 bg-white/5 hover:bg-white/10 border border-white/5 py-5 rounded-2xl transition-all group/opt">
+                            <Chrome size={20} className="text-on-surface/40 group-hover/opt:text-primary transition-colors" />
+                            <span className="label-sm font-bold uppercase tracking-widest group-hover:text-primary transition-colors">Chrome</span>
+                        </button>
+                        <button className="flex items-center justify-center gap-4 bg-white/5 hover:bg-white/10 border border-white/5 py-5 rounded-2xl transition-all group/opt">
+                            <Apple size={20} className="text-on-surface/40 group-hover/opt:text-primary transition-colors" />
+                            <span className="label-sm font-bold uppercase tracking-widest group-hover:text-primary transition-colors">Apple ID</span>
+                        </button>
+                    </div>
+                </motion.div>
+
+                <motion.div 
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 1 }}
+                   transition={{ delay: 0.5 }}
+                   className="mt-12 text-center space-y-4"
+                >
+                    <p className="label-sm text-on-surface/30 font-bold tracking-widest uppercase">
+                        Unregistered operative? <Link to="/signup" className="text-primary hover:text-secondary hover:underline ml-2 transition-all">Enroll Identity</Link>
+                    </p>
+                </motion.div>
             </main>
 
-            <footer className="py-8 px-6 text-center relative z-10">
-                <p className="text-[0.5rem] text-on-surface-variant tracking-[0.5em] font-black opacity-40">© 2024 KINETIC MOTORS • ALL SYSTEMS NOMINAL</p>
+            <footer className="mt-20 pb-10 text-center opacity-30">
+                <p className="label-sm uppercase tracking-[0.5em] font-black">© 2024 KINETIC MOTORS • ALL SYSTEMS NOMINAL</p>
             </footer>
         </div>
     )

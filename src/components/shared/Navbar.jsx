@@ -45,7 +45,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center max-w-[1920px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <h1 className="text-2xl font-black tracking-tighter text-primary uppercase select-none transition-transform group-hover:scale-105">
+          <h1 className="text-2xl font-poppins font-bold tracking-tighter text-primary uppercase select-none transition-all duration-500 group-hover:tracking-normal group-hover:shadow-primary-glow/10">
             KINETIC
           </h1>
         </Link>
@@ -57,8 +57,8 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               className={cn(
-                "text-sm font-bold uppercase tracking-widest transition-all hover:text-primary",
-                location.pathname === link.path ? "text-primary" : "text-on-surface-variant"
+                "text-[0.7rem] font-poppins font-bold uppercase tracking-[0.2em] transition-all duration-500 hover:text-primary",
+                location.pathname === link.path ? "text-primary shadow-primary-glow/20" : "text-on-surface-variant"
               )}
             >
               {link.name}
