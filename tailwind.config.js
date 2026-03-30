@@ -58,12 +58,34 @@ export default {
         "on-secondary-fixed-variant": "#005964",
         "tertiary-container": "#edeaea",
         "tertiary": "#fcf9f8",
-        "error-container": "#b92902"
+        "error-container": "#b92902",
+        "surface-container-lowest": "#050505",
+        "surface-lowest": "#050505",
+        "surface-low": "#0e0e0e",
+        "surface-medium": "#131313",
+        "surface-high": "#1a1919",
+        "surface-highest": "#262626",
+        "glass-blur": "rgba(29, 29, 29, 0.6)",
+      },
+      backgroundImage: {
+        "primary-gradient": "linear-gradient(135deg, #9cff93 0%, #00fc40 100%)",
+        "secondary-gradient": "linear-gradient(135deg, #00e3fd 0%, #00d7f0 100%)",
+        "surface-gradient": "linear-gradient(180deg, transparent 0%, rgba(5, 5, 5, 0.8) 100%)",
+      },
+      boxShadow: {
+        "primary-glow": "0 0 20px rgba(156, 255, 147, 0.3)",
+        "secondary-glow": "0 0 20px rgba(0, 227, 253, 0.3)",
+        "luxury-float": "0 20px 50px rgba(0, 0, 0, 0.5)",
       },
       fontFamily: {
+        "inter": ["Inter", "sans-serif"],
         "headline": ["Inter", "sans-serif"],
         "body": ["Inter", "sans-serif"],
         "label": ["Inter", "sans-serif"]
+      },
+      letterSpacing: {
+        "compressed": "-0.04em",
+        "tightest": "-0.02em",
       },
       borderRadius: {
         "DEFAULT": "1rem",

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Search, Heart, User } from 'lucide-react'
-import { clsx, type ClassValue } from 'clsx'
+import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
-function cn(...inputs: ClassValue[]) {
+function cn(...inputs) {
   return twMerge(clsx(inputs))
 }
 
@@ -26,15 +26,19 @@ const Navbar = () => {
     { name: 'Listing', path: '/listing' },
     { name: 'Compare', path: '/compare' },
     { name: 'Wishlist', path: '/wishlist' },
+    { name: 'Blog', path: '/blog' },
     { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Settings', path: '/settings' },
   ]
 
   return (
     <header 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 w-full z-50 transition-all duration-500",
         scrolled 
-          ? "bg-neutral-950/80 backdrop-blur-xl py-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+          ? "bg-surface-lowest/80 backdrop-blur-2xl py-4 shadow-luxury-float border-b border-white/5" 
           : "bg-transparent py-6"
       )}
     >
@@ -64,13 +68,13 @@ const Navbar = () => {
 
         {/* Action Icons */}
         <div className="flex items-center gap-6">
-          <button className="text-on-surface hover:text-primary transition-colors">
+          <Link to="/search" className="text-on-surface hover:text-primary transition-colors">
             <Search size={22} />
-          </button>
+          </Link>
           <Link to="/wishlist" className="text-on-surface hover:text-primary transition-colors hidden sm:block">
             <Heart size={22} />
           </Link>
-          <Link to="/auth/login" className="text-on-surface hover:text-primary transition-colors">
+          <Link to="/settings" className="text-on-surface hover:text-primary transition-colors">
             <User size={22} />
           </Link>
           
