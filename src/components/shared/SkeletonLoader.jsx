@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const SkeletonLoader = () => {
   return (
@@ -6,7 +6,7 @@ const SkeletonLoader = () => {
       <div className="animate-pulse space-y-12">
         {/* Hero Skeleton */}
         <div className="h-[60vh] bg-surface-container-highest rounded-3xl w-full" />
-        
+
         {/* Content Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="h-64 bg-surface-container-high rounded-2xl w-full" />
@@ -15,7 +15,7 @@ const SkeletonLoader = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SkeletonLoader
+export default SkeletonLoader;

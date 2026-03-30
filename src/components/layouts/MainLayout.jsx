@@ -1,16 +1,16 @@
-import React from 'react'
-import Navbar from '../shared/Navbar'
-import Footer from '../shared/Footer'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useLocation } from 'react-router-dom'
+import React from "react";
+import Navbar from "../shared/Navbar";
+import Footer from "../shared/Footer";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const MainLayout = ({ children }) => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-on-surface">
       <Navbar />
-      
+
       <main className="flex-grow pt-[80px]">
         <AnimatePresence mode="wait">
           <motion.div
@@ -27,7 +27,7 @@ const MainLayout = ({ children }) => {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
