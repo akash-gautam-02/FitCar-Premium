@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, Search, MessageCircle, Terminal, HelpCircle, Shield, CreditCard, Tool, Zap } from 'lucide-react';
+import { Plus, Minus, Search, MessageCircle, Terminal, HelpCircle, Shield, CreditCard, Wrench, Zap } from 'lucide-react';
 import Button from '../components/ui/Button';
 
 const FAQ = () => {
@@ -24,7 +24,7 @@ const FAQ = () => {
       question: "What charging networks are supported?",
       answer: "Kinetic vehicles are equipped with universal high-voltage rectifiers, compatible with all major global DC fast-charging networks. Our proprietary Kinetic Supercharge hubs provide a 10-80% delta in just 12 minutes.",
       category: "Maintenance",
-      icon: <Tool className="w-5 h-5" />
+      icon: <Wrench className="w-5 h-5" />
     },
     {
       question: "Does Kinetic offer localized track support?",
